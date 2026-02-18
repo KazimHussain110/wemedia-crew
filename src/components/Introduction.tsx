@@ -1,8 +1,10 @@
+import ArrowButton from './ui/ArrowButton';
+
 export default function Introduction() {
   return (
     <section className="py-20 bg-white">
       <div className="w-[80%] mx-auto px-4">
-        <div className="grid lg:grid-cols-[32%_68%] gap-12 mb-16 items-start">
+        <div className="grid lg:grid-cols-[28%_72%] gap-12 mb-16 items-start">
           <div>
             <div className="flex items-center gap-2">
               <svg className="w-2 h-2 fill-yellow-400" viewBox="0 0 512 512">
@@ -13,16 +15,13 @@ export default function Introduction() {
           </div>
 
           <div>
-            <div className="pr-8">
-              <h3 className="text-3xl md:text-4xl font-bold mb-8">
-                We're a creative video agency that helps<br />corporations and brands find their voice<br />and connect with their target audience.
-              </h3>
-              <a href="/team" className="inline-flex items-center gap-2 text-sm uppercase tracking-wider hover:gap-4 transition-all">
-                <span>meet our team</span>
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" />
-                </svg>
-              </a>
+            <div className="pr-8 max-w-3xl">
+              <p className="text-2xl md:text-3xl font-bold mb-8">
+                We're a creative video agency that helps corporations and brands
+                find their voice <br />and connect with their
+                target audience.
+              </p>
+              <ArrowButton href="/team" text="meet our team" />
 
               <div className="grid md:grid-cols-2 gap-8 mt-12 -ml-10 pr-5">
                 <div className="flex gap-4 pt-6 border-t border-gray-300">
@@ -53,10 +52,10 @@ export default function Introduction() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-0">
-          <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/h1_img-1.jpg" alt="Project 1" className="w-full h-auto rounded-lg" />
-          <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/h1_img-3.jpg" alt="Project 2" className="w-full h-auto rounded-lg" />
-          <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/h1_img-2.jpg" alt="Project 3" className="w-full h-auto rounded-lg" />
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-none mx-auto mt-0 relative z-20 -mt-20">
+          <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/h1_img-1.jpg" alt="Project 1" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+          <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/h1_img-3.jpg" alt="Project 2" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+          <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/h1_img-2.jpg" alt="Project 3" className="w-full h-48 md:h-64 object-cover rounded-lg" />
         </div>
       </div>
     </section>

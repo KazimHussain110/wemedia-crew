@@ -7,6 +7,8 @@ import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import Clients from "@/components/Clients";
 import Blog from "@/components/Blog";
+import Portfolio from "@/components/Portfolio";
+
 
 export default function Home() {
   return (
@@ -20,6 +22,7 @@ export default function Home() {
       <Testimonials />
       <Clients />
       <Blog />
+      <Portfolio />
     </>
   );
 }

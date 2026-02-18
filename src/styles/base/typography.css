@@ -9,10 +9,9 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-    font-weight: 900 !important;
+    font-weight: 400 !important;
     -webkit-text-stroke: 1px currentColor;
     text-shadow: 0 0 1px currentColor;
-    transform: scaleX(1.1);
     letter-spacing: 0.07em !important;
   }
 

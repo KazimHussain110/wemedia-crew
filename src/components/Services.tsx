@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import ArrowButton from './ui/ArrowButton';
 
 export default function Services() {
   const [hoveredService, setHoveredService] = useState<string | null>(null);
@@ -89,13 +90,7 @@ export default function Services() {
                   <div className="service-description">
                     <p className="text-sm line-clamp-3">{service.description}</p>
                   </div>
-                  <a
-                    href={service.link}
-                    className="inline-flex items-center gap-1 group/btn transition-all duration-300"
-                  >
-                    <span className="bg-yellow-400 text-black px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300">Learn More</span>
-                    <span className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black transition-all duration-300 group-hover/btn:-ml-4">→</span>
-                  </a>
+                  <ArrowButton href={service.link} text="Learn More" />
                 </div>
               </div>
             </div>

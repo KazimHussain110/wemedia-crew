@@ -7,7 +7,7 @@ export default function Introduction() {
         <div className="grid lg:grid-cols-[28%_72%] gap-12 mb-16 items-start">
           <div>
             <div className="flex items-center gap-2">
-              <svg className="w-2 h-2 fill-yellow-400" viewBox="0 0 512 512">
+              <svg className="w-2 h-2 fill-[#ffd731]" viewBox="0 0 512 512">
                 <circle cx="256" cy="256" r="256" />
               </svg>
               <span className="text-sm uppercase tracking-wider">introduction</span>

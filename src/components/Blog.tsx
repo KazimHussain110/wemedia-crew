@@ -1,3 +1,6 @@
+import ArrowButton from "./ui/ArrowButton";
+import Badge from "./ui/Badge";
+
 export default function Blog() {
   const posts = [
     {
@@ -31,12 +34,7 @@ export default function Blog() {
             </svg>
             <span className="text-sm uppercase tracking-wider font-medium" style={{ fontWeight: '500 !important' }}>LATEST NEWS</span>
           </div>
-          <a href="/blog" className="flex items-center gap-2 text-sm uppercase tracking-wider hover:gap-4 transition-all" style={{ fontWeight: '600 !important' }}>
-            <span>VIEW ALL POSTS</span>
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" />
-            </svg>
-          </a>
+          <ArrowButton href="/blog" text="VIEW ALL POSTS" />
         </div>
 
         <div className="w-full h-px bg-gray-200 mb-12"></div>
@@ -62,9 +60,7 @@ export default function Blog() {
               </div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-sm text-gray-600" style={{ fontWeight: '400 !important' }}>{post.date}</span>
-                <span className="bg-yellow-400 text-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider" style={{ fontWeight: '600 !important' }}>
-                  {post.category}
-                </span>
+                <Badge text={post.category} />
               </div>
               <div className="w-full h-px bg-gray-200 opacity-80 mb-4"></div>
               <h3 className="text-[28px] leading-tight" style={{ fontWeight: '700 !important' }}>

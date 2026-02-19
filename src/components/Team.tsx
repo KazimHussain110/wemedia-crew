@@ -3,22 +3,22 @@ export default function Team() {
     {
       name: 'Kevin Hart',
       role: 'Executive Producer',
-      image: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/team_1.jpg'
+      image: 'https://picsum.photos/seed/team1/400/600'
     },
     {
       name: 'Jenny Wilson',
       role: 'Chief Marketing',
-      image: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/team_2.jpg'
+      image: 'https://picsum.photos/seed/team2/400/600'
     },
     {
       name: 'Floyd Miles',
       role: 'Creative Director',
-      image: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/team_3.jpg'
+      image: 'https://picsum.photos/seed/team3/400/600'
     },
     {
       name: 'Arlene Bell',
       role: 'Executive Producer',
-      image: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/team_4.jpg'
+      image: 'https://picsum.photos/seed/team4/400/600'
     }
   ];
 
@@ -53,16 +53,30 @@ export default function Team() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
             <div key={index} className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <p className="text-sm mb-2 opacity-90">{member.role}</p>
-                  <h3 className="text-2xl font-bold">{member.name}</h3>
+              <div className="relative overflow-visible rounded-2xl aspect-[3/4]">
+                <div className="relative overflow-hidden rounded-2xl h-full">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-105"
+                  />
+                  <div className="absolute top-6 left-6 text-white opacity-100 group-hover:opacity-0 transition-opacity duration-500">
+                    <p className="text-lg font-medium">{member.role}</p>
+                  </div>
+                  <div className="absolute bottom-6 left-6 text-white opacity-100 group-hover:opacity-0 transition-opacity duration-500">
+                    <h3 className="text-2xl font-bold">{member.name}</h3>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="text-center text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      <h3 className="text-3xl font-bold mb-2">{member.name}</h3>
+                      <p className="text-lg">{member.role}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-12 h-12 bg-[#ffd731] rounded-full flex items-center justify-center opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" />
+                  </svg>
                 </div>
               </div>
             </div>

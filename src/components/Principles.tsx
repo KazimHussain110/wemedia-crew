@@ -1,3 +1,5 @@
+import ArrowButton from "./ui/ArrowButton";
+
 export default function Principles() {
   const principles = [
     {
@@ -58,7 +60,7 @@ export default function Principles() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-[1400px] mx-auto px-4">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="flex items-center gap-2 mb-12">
           <svg className="w-2 h-2 fill-black" viewBox="0 0 512 512">
             <circle cx="256" cy="256" r="256" />
@@ -66,28 +68,35 @@ export default function Principles() {
           <span className="text-sm uppercase tracking-wider font-medium">OUR PRINCIPLES</span>
         </div>
 
-        <div className="grid lg:grid-cols-[45%_55%] gap-12 mb-16">
-          <div>
-            <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
-              Committed to turning your ideas into reality
-            </h2>
-            <div className="flex items-center gap-4">
-              <a href="/quote" className="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-yellow-500 transition-colors">
-                GET A QUOTE
-              </a>
-              <button className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center hover:bg-yellow-500 transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" />
-                </svg>
-              </button>
+        <div className="mb-16">
+          <div className="grid lg:grid-cols-[35%_65%] gap-6 mb-8">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-8 tracking-tight">
+                Committed to turning your ideas into reality
+              </h2>
+              <ArrowButton href="/quote" text="GET A QUOTE" />
+            </div>
+
+            {/* First row - 2 cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:mr-7 lg:-ml-8">
+              {principles.slice(0, 2).map((principle, index) => (
+                <div key={index} className="bg-gray-100 rounded p-8">
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="text-2xl font-bold tracking-tight">{principle.title}</h3>
+                    {principle.icon}
+                  </div>
+                  <p className="text-gray-500 text-sm leading-relaxed">{principle.description}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {principles.slice(0, 2).map((principle, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8">
+          {/* Second row - 3 cards taking full width */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {principles.slice(2).map((principle, index) => (
+              <div key={index} className="bg-gray-100 rounded p-8">
                 <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-2xl font-bold">{principle.title}</h3>
+                  <h3 className="text-xl font-bold tracking-tight">{principle.title}</h3>
                   {principle.icon}
                 </div>
                 <p className="text-gray-500 text-sm leading-relaxed">{principle.description}</p>
@@ -96,27 +105,20 @@ export default function Principles() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          {principles.slice(2).map((principle, index) => (
-            <div key={index} className="bg-gray-50 rounded-2xl p-8">
-              <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold">{principle.title}</h3>
-                {principle.icon}
-              </div>
-              <p className="text-gray-500 text-sm leading-relaxed">{principle.description}</p>
-            </div>
-          ))}
-        </div>
-
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <div key={index}>
-              <h3 className="text-6xl md:text-7xl font-bold mb-4">{stat.number}</h3>
+            <div key={index} className="group">
+              <h3 className="text-6xl md:text-7xl font-bold mb-4 tracking-tight">{stat.number}</h3>
+              <div className="relative mb-2">
+                <div className="h-px bg-gray-300 w-full"></div>
+                <div className="absolute top-0 left-0 h-px bg-black w-0 group-hover:w-full transition-all duration-300 ease-out"></div>
+              </div>
               <p className="text-sm font-medium">{stat.label}</p>
             </div>
           ))}
         </div>
       </div>
+      
     </section>
   );
 }

@@ -6,24 +6,28 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50">
-        <div className="w-full px-4 py-6 flex items-center justify-between max-w-[1200px] mx-auto">
+      <header className="absolute top-0 left-0 right-0 z-50">
+        <div className="w-full px-8 py-6 flex items-center justify-between">
           <a href="/" className="flex-shrink-0">
             <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/logo-w.svg" alt="logo" className="h-8" />
           </a>
 
           <div className="flex items-center gap-6">
-            <nav className="hidden lg:flex items-center gap-8">
-              <a href="/" className="text-white hover:text-gray-300">Demos</a>
-              <a href="#" className="text-white hover:text-gray-300">Pages</a>
-              <a href="#" className="text-white hover:text-gray-300">Services</a>
-              <a href="#" className="text-white hover:text-gray-300">Work</a>
-              <a href="#" className="text-white hover:text-gray-300">Contact</a>
+            <nav className="hidden lg:flex items-center gap-4">
+              <a href="/" className="text-white hover:text-gray-300 text-sm border-b border-[#ffd731]">HOME</a>
+              <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+              <a href="#" className="text-white hover:text-gray-300 text-sm pb-0">PAGES</a>
+              <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+              <a href="#" className="text-white hover:text-gray-300 text-sm pb-0.5">SERVICES</a>
+              <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+              <a href="#" className="text-white hover:text-gray-300 text-sm pb-0.5">WORK</a>
+              <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+              <a href="#" className="text-white hover:text-gray-300 text-sm pb-0.5">CONTACT</a>
             </nav>
 
-            <button onClick={() => setMenuOpen(!menuOpen)} className="hidden lg:flex flex-col gap-1 w-10 h-10 bg-yellow-400 rounded-full items-center justify-center">
-              <span className="h-0.5 bg-black w-4"></span>
-              <span className="h-0.5 bg-black w-4"></span>
+            <button onClick={() => setMenuOpen(!menuOpen)} className="hidden lg:flex flex-col gap-1 w-10 h-10 bg-[#ffd731] hover:bg-ffd731 rounded-full items-center justify-center relative">
+              <span className={`h-0.5 bg-black w-4 transition-all duration-300 ${menuOpen ? 'rotate-45 absolute' : ''}`}></span>
+              <span className={`h-0.5 bg-black w-4 transition-all duration-300 ${menuOpen ? '-rotate-45 absolute' : ''}`}></span>
             </button>
 
             <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden text-white text-2xl">
@@ -45,7 +49,6 @@ export default function Header() {
                 <li><a href="/">Home One</a></li>
                 <li><a href="/home-2">Home Two</a></li>
                 <li><a href="/home-3">Home Three</a></li>
-                <li><a href="/home-4">Home Four</a></li>
               </ul>
             </div>
             <div>

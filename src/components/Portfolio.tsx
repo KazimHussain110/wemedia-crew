@@ -83,7 +83,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <section className="py-20 bg-[#2B2B2B] relative z-10 -mt-20">
+    <section className="py-20 bg-[#2B2B2B] relative z-10 -mt-27">
       <div className="w-[90%] mx-auto px-4">
         <div className="flex items-center justify-between mb-16 text-white">
           <div className="flex items-center gap-2">
@@ -125,7 +125,7 @@ export default function Portfolio() {
                       {project.title}
                     </h4>
                     <div className="project-meta flex items-center gap-4 text-sm text-gray-300">
-                      <span className="text-yellow-500">{project.category}</span>
+                      <span className="text-[#ffd731]">{project.category}</span>
                       <span>{project.year}</span>
                     </div>
                   </div>
@@ -135,11 +135,7 @@ export default function Portfolio() {
                     <div className="project-excerpt text-white mb-4">
                       {project.description}
                     </div>
-                    <a
-                      href={project.link}
-                      className="inline-flex items-center text-sm font-semibold text-white hover:text-yellow-500 transition-colors">
-                      <span>View Project →</span>
-                    </a>
+                    <ArrowButton href={project.link} text="View Project" bgColor="bg-white" textColor="text-black" />
                   </div>
                 </div>
                 </div>

@@ -14,9 +14,9 @@ export default function Testimonials() {
   const [currentIndex] = useState(0);
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-[1400px] mx-auto px-4">
-        <div className="grid lg:grid-cols-[35%_65%] gap-16 items-center">
+    <section className="py-20 bg-gray-50 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:pl-8 lg:pr-8">
+        <div className="grid lg:grid-cols-[40%_55%] gap-16 items-center">
           {/* Left Side */}
           <div>
             <div className="flex items-center gap-2 mb-8">
@@ -51,7 +51,7 @@ export default function Testimonials() {
                   className="w-14 h-14 rounded-full border-2 border-white object-cover"
                 />
               </div>
-              <div className="w-14 h-14 rounded-full bg-yellow-400 flex items-center justify-center text-2xl font-bold">
+              <div className="w-14 h-14 rounded-full bg-[#ffd731] flex items-center justify-center text-2xl font-bold">
                 +
               </div>
             </div>
@@ -62,10 +62,10 @@ export default function Testimonials() {
           </div>
 
           {/* Right Side */}
-          <div className="relative">
-            <div className="mb-12">
-              <p className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-8">
-                {testimonials[currentIndex].quote}
+          <div className="relative max-w-full">
+            <div>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-tight mb-8">
+                "{testimonials[currentIndex].quote}"
               </p>
 
               <div className="flex items-center justify-between">
@@ -90,12 +90,6 @@ export default function Testimonials() {
                 </div>
               </div>
             </div>
-
-            <button className="absolute bottom-0 right-0 w-16 h-16 rounded-full border-2 border-yellow-400 flex items-center justify-center hover:bg-yellow-400 transition-colors group">
-              <svg className="w-6 h-6 text-yellow-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>

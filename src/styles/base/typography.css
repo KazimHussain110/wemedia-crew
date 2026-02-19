@@ -12,7 +12,7 @@
     font-weight: 400 !important;
     -webkit-text-stroke: 1px currentColor;
     text-shadow: 0 0 1px currentColor;
-    letter-spacing: 0.07em !important;
+    letter-spacing: 0.02em !important;
   }
 
   p, span, a, div {

@@ -14,7 +14,7 @@ export default function Clients() {
 
   return (
     <section className="py-20 bg-gray-50">
-      <div className="max-w-[1400px] mx-auto px-4">
+      <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-0">
           {clients.map((client, index) => (
             <div

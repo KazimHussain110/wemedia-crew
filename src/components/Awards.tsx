@@ -7,6 +7,7 @@ export default function Awards() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
 
   const awards = [
     {
@@ -90,8 +91,21 @@ export default function Awards() {
     }
   };
 
+  const toggleCard = (index: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setExpandedCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
+  };
+
   return (
-    <section className="py-20 bg-gray-50 overflow-hidden">
+    <section className="py-20 bg-gray-200 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 mb-12">
         <div className="flex items-center gap-2 mb-12">
           <svg className="w-2 h-2 fill-black" viewBox="0 0 512 512">
@@ -117,52 +131,59 @@ export default function Awards() {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
       >
-        {tripleAwards.map((award, index) => (
+        {tripleAwards.map((award, index) => {
+          const isExpanded = expandedCards.has(index);
+          return (
           <div
             key={index}
-            className="flex-shrink-0 w-[500px] md:w-[600px] bg-white rounded-2xl p-12 pointer-events-none"
+            className={`flex-shrink-0 w-[600px] md:w-[700px] rounded-lg p-12 pointer-events-none transition-colors duration-300 ${isExpanded ? 'bg-[#ffd731]' : 'bg-white'}`}
           >
-            <div className="flex justify-between items-start mb-12">
-              <h3 className="text-8xl font-bold text-gray-200">{award.year}</h3>
+            <div className="flex justify-between items-start mb-8">
+              <h3 className="text-5xl font-bold text-gray-200">{award.year}</h3>
               <span className="text-sm font-bold">{award.count}</span>
             </div>
 
-            <div className="flex justify-center mb-12">
-              <div className="relative">
-                <svg className="w-48 h-48" viewBox="0 0 200 200">
-                  <path
-                    d="M 30,100 Q 30,30 100,30 Q 170,30 170,100 Q 170,170 100,170 Q 30,170 30,100"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M 20,100 L 35,85 L 35,115 Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M 180,100 L 165,85 L 165,115 Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span className="text-xs font-bold mb-2">WINNER</span>
-                  <p className="text-sm font-bold leading-tight whitespace-pre-line">
-                    {award.festival}
-                  </p>
-                  <span className="text-lg font-bold mt-2">{award.festivalYear}</span>
+            <div className="relative h-48 mb-8 overflow-hidden">
+              <div className={`flex justify-center absolute inset-0 transition-opacity duration-500 ${isExpanded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+                <div className="relative">
+                  <svg className="w-48 h-48" viewBox="0 0 200 200">
+                    <path
+                      d="M 20,100 L 35,85 L 35,115 Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M 180,100 L 165,85 L 165,115 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                    <span className="text-xs font-bold mb-2">WINNER</span>
+                    <p className="text-sm font-bold leading-tight whitespace-pre-line">
+                      {award.festival}
+                    </p>
+                    <span className="text-lg font-bold mt-2">{award.festivalYear}</span>
+                  </div>
                 </div>
+              </div>
+
+              <div className={`absolute inset-0 transition-opacity duration-500 ${isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <p className="text-gray-700 text-base leading-relaxed">
+                  This award recognizes excellence in {award.title.toLowerCase()}. Our team's dedication and innovative approach led to this prestigious recognition at the {award.festival.replace('\\n', ' ')} in {award.festivalYear}.
+                </p>
               </div>
             </div>
 
-            <div className="flex justify-between items-center pt-6 border-t border-gray-200">
+            <div className="flex justify-between items-center pt-6">
               <h4 className="text-xl font-bold max-w-[400px]">{award.title}</h4>
-              <button className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors">
-                <span className="text-xl">+</span>
+              <button 
+                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all pointer-events-auto ${isExpanded ? 'bg-white text-black' : 'bg-transparent'}`}
+                onClick={(e) => toggleCard(index, e)}
+              >
+                <span className={`text-3xl font-light transition-transform duration-300 ${isExpanded ? 'rotate-45' : ''}`}>+</span>
               </button>
             </div>
           </div>
-        ))}
+        );})}
       </div>
     </section>
   );

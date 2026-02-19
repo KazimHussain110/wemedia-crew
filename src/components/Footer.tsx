@@ -3,28 +3,27 @@ export default function Footer() {
     <footer className="bg-[#2a2a2a] text-white">
       <div className="max-w-[1400px] mx-auto px-4 pt-16 pb-8">
         {/* Top Section */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-20">
-          {/* Logo & Main Links */}
-          <div>
-            <div className="flex items-center gap-2 mb-8">
-              <div className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-              <span className="text-2xl font-bold">framek</span>
-            </div>
+        <div className="flex flex-col md:flex-row gap-8 mb-20">
+          {/* Logo */}
+          <div className="md:w-1/5">
+            <a href="/" className="flex-shrink-0">
+              <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/logo-w.svg" alt="logo" className="h-8" />
+            </a>
+          </div>
+
+          {/* Main Links */}
+          <div className="md:w-1/5">
             <nav className="space-y-3">
-              <a href="/" className="block text-white font-semibold hover:text-yellow-400">HOME</a>
-              <a href="/about" className="block text-white font-semibold hover:text-yellow-400">ABOUT US</a>
-              <a href="/services" className="block text-white font-semibold hover:text-yellow-400">SERVICES</a>
-              <a href="/projects" className="block text-white font-semibold hover:text-yellow-400">PROJECTS</a>
-              <a href="/contact" className="block text-white font-semibold hover:text-yellow-400">CONTACT US</a>
+              <a href="/" className="block text-white font-semibold hover:text-[#ffd731]">HOME</a>
+              <a href="/about" className="block text-white font-semibold hover:text-[#ffd731]">ABOUT US</a>
+              <a href="/services" className="block text-white font-semibold hover:text-[#ffd731]">SERVICES</a>
+              <a href="/projects" className="block text-white font-semibold hover:text-[#ffd731]">PROJECTS</a>
+              <a href="/contact" className="block text-white font-semibold hover:text-[#ffd731]">CONTACT US</a>
             </nav>
           </div>
 
           {/* Product */}
-          <div>
+          <div className="md:w-1/5">
             <h3 className="text-gray-500 font-semibold mb-6 uppercase text-sm">PRODUCT</h3>
             <nav className="space-y-3">
               <a href="#" className="block text-gray-400 hover:text-white">Commercial Videos</a>
@@ -36,7 +35,7 @@ export default function Footer() {
           </div>
 
           {/* Our Services */}
-          <div>
+          <div className="md:w-1/5">
             <h3 className="text-gray-500 font-semibold mb-6 uppercase text-sm">OUR SERVICES</h3>
             <nav className="space-y-3">
               <a href="#" className="block text-gray-400 hover:text-white">Film Production</a>
@@ -48,7 +47,7 @@ export default function Footer() {
           </div>
 
           {/* Pages */}
-          <div>
+          <div className="md:w-1/5">
             <h3 className="text-gray-500 font-semibold mb-6 uppercase text-sm">PAGES</h3>
             <nav className="space-y-3">
               <a href="#" className="block text-gray-400 hover:text-white">Team</a>
@@ -65,7 +64,7 @@ export default function Footer() {
           <h2 className="text-5xl md:text-7xl font-bold mb-8">Let's collaborate</h2>
           <div className="space-y-2 mb-8">
             <p className="text-gray-400">framek.contact@example.com</p>
-            <a href="tel:+4065550120" className="text-3xl md:text-4xl font-bold block hover:text-yellow-400">+ (406) 555-0120</a>
+            <a href="tel:+4065550120" className="text-3xl md:text-4xl font-bold block hover:text-[#ffd731]">+ (406) 555-0120</a>
           </div>
           <div className="flex justify-center gap-6 text-xs text-gray-500 uppercase">
             <a href="#" className="hover:text-white">FACEBOOK</a>
@@ -77,13 +76,13 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>© 2025 <span className="text-yellow-400">Framek</span>. All Rights Reserved.</p>
+          <p>© 2025 <span className="text-[#ffd731]">Framek</span>. All Rights Reserved.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-white">Privacy Policy</a>
             <a href="#" className="hover:text-white">Terms of Use</a>
             <a href="#" className="hover:text-white">Cookies</a>
           </div>
-          <button className="w-12 h-12 rounded-full border-2 border-yellow-400 flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors">
+          <button className="w-12 h-12 rounded-full border-2 border-[#ffd731] flex items-center justify-center hover:bg-[#ffd731 hover:text-black transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
             </svg>

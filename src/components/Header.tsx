@@ -16,13 +16,13 @@ export default function Header() {
             <nav className="hidden lg:flex items-center gap-4">
               <a href="/" className="text-white hover:text-gray-300 text-sm border-b border-[#ffd731]">HOME</a>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <a href="#" className="text-white hover:text-gray-300 text-sm pb-0">PAGES</a>
+              <a href="/about" className="text-white hover:text-gray-300 text-sm pb-0">ABOUT</a>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <a href="#" className="text-white hover:text-gray-300 text-sm pb-0.5">SERVICES</a>
+              <a href="/services" className="text-white hover:text-gray-300 text-sm pb-0.5">SERVICES</a>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <a href="#" className="text-white hover:text-gray-300 text-sm pb-0.5">WORK</a>
+              <a href="/work" className="text-white hover:text-gray-300 text-sm pb-0.5">WORK</a>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <a href="#" className="text-white hover:text-gray-300 text-sm pb-0.5">CONTACT</a>
+              <a href="/contact" className="text-white hover:text-gray-300 text-sm pb-0.5">CONTACT</a>
             </nav>
 
             <button onClick={() => setMenuOpen(!menuOpen)} className="hidden lg:flex flex-col gap-1 w-10 h-10 bg-[#ffd731] hover:bg-ffd731 rounded-full items-center justify-center relative">

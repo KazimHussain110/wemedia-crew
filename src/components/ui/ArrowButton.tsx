@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
 interface ArrowButtonProps {
@@ -9,7 +10,7 @@ interface ArrowButtonProps {
 
 export default function ArrowButton({ href, text, bgColor = 'bg-[#ffd731]', textColor = 'text-black' }: ArrowButtonProps) {
   return (
-    <a
+    <Link
       href={href}
       className="inline-flex items-center gap-1 group/btn transition-all duration-300"
     >
@@ -17,6 +18,6 @@ export default function ArrowButton({ href, text, bgColor = 'bg-[#ffd731]', text
       <span className={`w-12 h-12 ${bgColor} rounded-full flex items-center justify-center ${textColor} transition-all duration-300 group-hover/btn:-ml-4`}>
         <ChevronRight size={20} />
       </span>
-    </a>
+    </Link>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
-
+import Link
+ from 'next/link';
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -8,21 +9,21 @@ export default function Header() {
     <>
       <header className="absolute top-0 left-0 right-0 z-50">
         <div className="w-full px-8 py-6 flex items-center justify-between">
-          <a href="/" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0">
             <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/logo-w.svg" alt="logo" className="h-8" />
-          </a>
+          </Link>
 
           <div className="flex items-center gap-6">
             <nav className="hidden lg:flex items-center gap-4">
-              <a href="/" className="text-white hover:text-gray-300 text-sm border-b border-[#ffd731]">HOME</a>
+              <Link href="/" className="text-white hover:text-gray-300 text-sm border-b border-[#ffd731]">HOME</Link>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <a href="/about" className="text-white hover:text-gray-300 text-sm pb-0">ABOUT</a>
+              <Link href="/about" className="text-white hover:text-gray-300 text-sm pb-0">ABOUT</Link>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <a href="/services" className="text-white hover:text-gray-300 text-sm pb-0.5">SERVICES</a>
+              <Link href="/services" className="text-white hover:text-gray-300 text-sm pb-0.5">SERVICES</Link>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <a href="/work" className="text-white hover:text-gray-300 text-sm pb-0.5">WORK</a>
+              <Link href="/work" className="text-white hover:text-gray-300 text-sm pb-0.5">WORK</Link>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <a href="/contact" className="text-white hover:text-gray-300 text-sm pb-0.5">CONTACT</a>
+              <Link href="/contact" className="text-white hover:text-gray-300 text-sm pb-0.5">CONTACT</Link>
             </nav>
 
             <button onClick={() => setMenuOpen(!menuOpen)} className="hidden lg:flex flex-col gap-1 w-10 h-10 bg-[#ffd731] hover:bg-ffd731 rounded-full items-center justify-center relative">
@@ -46,18 +47,18 @@ export default function Header() {
             <div>
               <h3 className="text-white text-xl mb-4">Demos</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/">Home One</a></li>
-                <li><a href="/home-2">Home Two</a></li>
-                <li><a href="/home-3">Home Three</a></li>
+                <li><Link href="/">Home One</Link></li>
+                <li><Link href="/home-2">Home Two</Link></li>
+                <li><Link href="/home-3">Home Three</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-white text-xl mb-4">Pages</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/awards">Our Awards</a></li>
-                <li><a href="/clients">Clients</a></li>
-                <li><a href="/team">Our Team</a></li>
+                <li><Link href="/about">About Us</Link></li>
+                <li><Link href="/awards">Our Awards</Link></li>
+                <li><Link href="/clients">Clients</Link></li>
+                <li><Link href="/team">Our Team</Link></li>
               </ul>
             </div>
             <div>

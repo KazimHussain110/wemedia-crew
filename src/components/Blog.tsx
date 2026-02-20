@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ArrowButton from "./ui/ArrowButton";
 import Badge from "./ui/Badge";
 
@@ -50,7 +51,7 @@ export default function Blog() {
         {/* Blog Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr_1fr] gap-6">
           {posts.map((post, index) => (
-            <a key={index} href="#" className="block group">
+            <Link key={index} href="#" className="block group">
               <div className="mb-6">
                 <img 
                   src={post.image} 
@@ -66,7 +67,7 @@ export default function Blog() {
               <h3 className="text-[28px] leading-tight" style={{ fontWeight: '700 !important' }}>
                 {post.title}
               </h3>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

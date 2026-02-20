@@ -18,7 +18,7 @@ export default function Contact() {
                 <span>Contact</span>
               </div>
             </div>
-            <ArrowButton href="/projects" text="explore our reels" />
+            <ArrowButton href="/projects" text="EXPLORE OUR REELS" />
           </div>
         </div>
       </section>

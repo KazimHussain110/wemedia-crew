@@ -13,7 +13,7 @@ export default function WorkHero() {
             <span>·</span>
             <span>Work</span>
           </div>
-          <ArrowButton href="/projects" text="explore our reels" />
+          <ArrowButton href="/projects" text="EXPLORE OUR REELS" />
         </div>
       </div>
     </section>

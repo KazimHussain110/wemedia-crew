@@ -13,7 +13,7 @@ export default function ContactHero() {
             <span>·</span>
             <span>Contact</span>
           </div>
-          <ArrowButton href="/projects" text="explore our reels" bgColor="bg-white" textColor="text-black" />
+          <ArrowButton href="/projects" text="EXPLORE OUR REELS" bgColor="bg-white" textColor="text-black" />
         </div>
       </div>
     </section>

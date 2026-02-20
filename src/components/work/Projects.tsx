@@ -72,15 +72,15 @@ export default function Projects() {
     <section className="py-16 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         {/* Filter Navigation */}
-        <div className="flex flex-wrap gap-4 mb-12 justify-center">
+        <div className="flex flex-wrap mb-12 justify-center">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveFilter(category)}
-              className={`px-6 py-2 text-sm font-medium transition-colors ${
+              className={`px-6 py-2 text-sm font-medium transition-colors rounded-full ${
                 activeFilter === category
-                  ? 'text-black border-b-2 border-black'
-                  : 'text-gray-600 hover:text-black'
+                  ? 'bg-[#ffd731] text-black'
+                  : 'text-black hover:bg-[#ffd731]'
               }`}
             >
               {category}
@@ -89,25 +89,28 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <div key={project.id}>
-              <div className="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+              <div className="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4 rounded-2xl">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
                 
+                {/* Dark Fade Overlay */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent"></div>
+                
                 {/* Bottom Info */}
-                <div className="absolute bottom-4 left-9 right-12">
+                <div className="absolute bottom-4 left-9 right-10 z-10">
                   <h4 className="text-lg font-medium text-white mb-2">
                     {project.title}
                   </h4>
                   <div className="w-75 h-px bg-gray-400 mb-2"></div>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className="text-sm text-gray-300">{project.category}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] text-gray-300">{project.category}</span>
                       <span className="text-sm text-gray-300">{project.year}</span>
                     </div>
                     <a

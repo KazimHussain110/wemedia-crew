@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Familjen Grotesk';
+  src: url('/fonts/fdN99sWUv3gWqXxqqRBctFs.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans';
+  src: url('/fonts/Qw3GZR9ZHiDnImG6-NEMQ41wby8WbHoEjw.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}

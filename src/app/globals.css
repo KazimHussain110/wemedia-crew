@@ -11,5 +11,6 @@
 @import "../styles/themes/dark.css";
 
 /* Base Styles */
+@import "../styles/base/fonts.css";
 @import "../styles/base/reset.css";
 @import "../styles/base/typography.css";

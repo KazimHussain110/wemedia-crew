@@ -1,14 +1,14 @@
 @layer base {
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-    font-weight: 700 !important;
+    font-family: "Familjen Grotesk", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
+    font-weight: 400 !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0.08em !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-family: "Cal Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
     font-weight: 400 !important;
     -webkit-text-stroke: 1px currentColor;
     text-shadow: 0 0 1px currentColor;
@@ -16,7 +16,7 @@
   }
 
   p, span, a, div {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-family: "Familjen Grotesk", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
     letter-spacing: 0.08em !important;
   }
  

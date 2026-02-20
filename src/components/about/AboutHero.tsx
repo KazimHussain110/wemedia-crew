@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ArrowButton from '../ui/ArrowButton';
 
 export default function AboutHero() {
@@ -9,7 +10,7 @@ export default function AboutHero() {
         <div className="h-px bg-gray-400 mb-6"></div>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="flex items-center gap-2 text-sm text-gray-200">
-            <a href="/" className="hover:text-[#ffd731] transition-colors">Home</a>
+            <Link href="/" className="hover:text-[#ffd731] transition-colors">Home</Link>
             <span>·</span>
             <span>About</span>
           </div>

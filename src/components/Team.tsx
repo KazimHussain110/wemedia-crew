@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Team() {
   const teamMembers = [
     {
@@ -33,12 +35,12 @@ export default function Team() {
             </svg>
             <span className="text-sm uppercase tracking-wider font-medium">OUR PEOPLE</span>
           </div>
-          <a href="/team" className="flex items-center gap-2 text-sm uppercase tracking-wider font-medium hover:gap-4 transition-all">
+          <Link href="/team" className="flex items-center gap-2 text-sm uppercase tracking-wider font-medium hover:gap-4 transition-all">
             <span>JOIN US NOW</span>
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* Title & Description */}

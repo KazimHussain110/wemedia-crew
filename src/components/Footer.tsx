@@ -1,3 +1,6 @@
+'use client';
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer className="bg-[#2a2a2a] text-white">
@@ -6,19 +9,19 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row gap-8 mb-20">
           {/* Logo */}
           <div className="md:w-1/5">
-            <a href="/" className="flex-shrink-0">
+            <Link href="/" className="flex-shrink-0">
               <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/logo-w.svg" alt="logo" className="h-8" />
-            </a>
+            </Link>
           </div>
 
           {/* Main Links */}
           <div className="md:w-1/5">
             <nav className="space-y-3">
-              <a href="/" className="block text-white font-semibold hover:text-[#ffd731]">HOME</a>
-              <a href="/about" className="block text-white font-semibold hover:text-[#ffd731]">ABOUT US</a>
-              <a href="/services" className="block text-white font-semibold hover:text-[#ffd731]">SERVICES</a>
-              <a href="/projects" className="block text-white font-semibold hover:text-[#ffd731]">PROJECTS</a>
-              <a href="/contact" className="block text-white font-semibold hover:text-[#ffd731]">CONTACT US</a>
+              <Link href="/" className="block text-white font-semibold hover:text-[#ffd731]">HOME</Link>
+              <Link href="/about" className="block text-white font-semibold hover:text-[#ffd731]">ABOUT US</Link>
+              <Link href="/services" className="block text-white font-semibold hover:text-[#ffd731]">SERVICES</Link>
+              <Link href="/projects" className="block text-white font-semibold hover:text-[#ffd731]">PROJECTS</Link>
+              <Link href="/contact" className="block text-white font-semibold hover:text-[#ffd731]">CONTACT US</Link>
             </nav>
           </div>
 

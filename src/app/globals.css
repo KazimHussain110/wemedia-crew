@@ -14,3 +14,11 @@
 @import "../styles/base/fonts.css";
 @import "../styles/base/reset.css";
 @import "../styles/base/typography.css";
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

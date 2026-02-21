@@ -115,7 +115,7 @@ export default function Awards() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <h2 className="text-6xl md:text-8xl font-bold">Awards</h2>
+          <h2 className="text-7xl md:text-6xl lg:text-8xl font-bold">Awards</h2>
           <p className="text-gray-500 text-lg lg:text-right self-end">
             Efforts to receive worthy rewards, awards & recognition help us affirm our brand.
           </p>
@@ -136,17 +136,17 @@ export default function Awards() {
           return (
           <div
             key={index}
-            className={`flex-shrink-0 w-[600px] md:w-[700px] rounded-lg p-12 pointer-events-none transition-colors duration-300 ${isExpanded ? 'bg-[#ffd731]' : 'bg-white'}`}
+            className={`flex-shrink-0 w-[340px] md:w-[700px] h-[380px] md:h-auto rounded-lg p-6 md:p-12 pointer-events-none transition-colors duration-300 ${isExpanded ? 'bg-[#ffd731]' : 'bg-white'}`}
           >
-            <div className="flex justify-between items-start mb-8">
-              <h3 className="text-5xl font-bold text-gray-200">{award.year}</h3>
+            <div className="flex justify-between items-start mb-4 md:mb-8">
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-200">{award.year}</h3>
               <span className="text-sm font-bold">{award.count}</span>
             </div>
 
-            <div className="relative h-48 mb-8 overflow-hidden">
+            <div className="relative h-40 md:h-48 mb-4 md:mb-8 overflow-visible">
               <div className={`flex justify-center absolute inset-0 transition-opacity duration-500 ${isExpanded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
                 <div className="relative">
-                  <svg className="w-48 h-48" viewBox="0 0 200 200">
+                  <svg className="w-32 h-32 md:w-48 md:h-48" viewBox="0 0 200 200">
                     <path
                       d="M 20,100 L 35,85 L 35,115 Z"
                       fill="currentColor"
@@ -157,24 +157,24 @@ export default function Awards() {
                     />
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold mb-2">WINNER</span>
-                    <p className="text-sm font-bold leading-tight whitespace-pre-line">
+                    <span className="text-[10px] md:text-xs font-bold mb-1 md:mb-2">WINNER</span>
+                    <p className="text-xs md:text-sm font-bold leading-tight whitespace-pre-line">
                       {award.festival}
                     </p>
-                    <span className="text-lg font-bold mt-2">{award.festivalYear}</span>
+                    <span className="text-sm md:text-lg font-bold mt-1 md:mt-2">{award.festivalYear}</span>
                   </div>
                 </div>
               </div>
 
               <div className={`absolute inset-0 transition-opacity duration-500 ${isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <p className="text-gray-700 text-base leading-relaxed">
+                <p className="text-gray-700 text-[15px] md:text-base leading-relaxed">
                   This award recognizes excellence in {award.title.toLowerCase()}. Our team's dedication and innovative approach led to this prestigious recognition at the {award.festival.replace('\\n', ' ')} in {award.festivalYear}.
                 </p>
               </div>
             </div>
 
-            <div className="flex justify-between items-center pt-6">
-              <h4 className="text-xl font-bold max-w-[400px]">{award.title}</h4>
+            <div className="flex justify-between items-center pt-10 md:pt-6">
+              <h4 className="text-base md:text-xl font-bold max-w-[220px] md:max-w-[400px]">{award.title}</h4>
               <button 
                 className={`w-12 h-12 rounded-full flex items-center justify-center transition-all pointer-events-auto ${isExpanded ? 'bg-white text-black' : 'bg-transparent'}`}
                 onClick={(e) => toggleCard(index, e)}

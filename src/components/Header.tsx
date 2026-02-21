@@ -1,9 +1,10 @@
 'use client';
 import { useState } from 'react';
-import Link
- from 'next/link';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -15,15 +16,15 @@ export default function Header() {
 
           <div className="flex items-center gap-6">
             <nav className="hidden lg:flex items-center gap-4">
-              <Link href="/" className="text-white hover:text-gray-300 text-sm border-b border-[#ffd731]">HOME</Link>
+              <Link href="/" className={`text-white hover:text-gray-300 text-sm relative pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#ffd731] after:transition-all after:duration-300 ${pathname === '/' ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`}>HOME</Link>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <Link href="/about" className="text-white hover:text-gray-300 text-sm pb-0">ABOUT</Link>
+              <Link href="/about" className={`text-white hover:text-gray-300 text-sm relative pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#ffd731] after:transition-all after:duration-300 ${pathname === '/about' ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`}>ABOUT</Link>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <Link href="/services" className="text-white hover:text-gray-300 text-sm pb-0.5">SERVICES</Link>
+              <Link href="/services" className={`text-white hover:text-gray-300 text-sm relative pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#ffd731] after:transition-all after:duration-300 ${pathname === '/services' ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`}>SERVICES</Link>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <Link href="/work" className="text-white hover:text-gray-300 text-sm pb-0.5">WORK</Link>
+              <Link href="/work" className={`text-white hover:text-gray-300 text-sm relative pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#ffd731] after:transition-all after:duration-300 ${pathname === '/work' ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`}>WORK</Link>
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <Link href="/contact" className="text-white hover:text-gray-300 text-sm pb-0.5">CONTACT</Link>
+              <Link href="/contact" className={`text-white hover:text-gray-300 text-sm relative pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#ffd731] after:transition-all after:duration-300 ${pathname === '/contact' ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`}>CONTACT</Link>
             </nav>
 
             <button onClick={() => setMenuOpen(!menuOpen)} className="hidden lg:flex flex-col gap-1 w-10 h-10 bg-[#ffd731] hover:bg-ffd731 rounded-full items-center justify-center relative">

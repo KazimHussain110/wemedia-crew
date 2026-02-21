@@ -19,5 +19,9 @@
     font-family: "Familjen Grotesk", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
     letter-spacing: 0.08em !important;
   }
+
+  p {
+    font-weight: 200 !important;
+  }
  
 }

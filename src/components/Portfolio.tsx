@@ -96,7 +96,7 @@ export default function Portfolio() {
         </div>
 
         <div className="mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Projects</h1>
+          <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">Projects</h1>
           <p className="text-lg text-gray-600 max-w-2xl text-white mx-auto">
             Well-crafted videos that tend to our customer's purpose. Explore a selection of our finest videos.
           </p>

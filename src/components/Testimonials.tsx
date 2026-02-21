@@ -26,7 +26,7 @@ export default function Testimonials() {
               <span className="text-sm uppercase tracking-wider font-medium">OUR PARTNERS</span>
             </div>
 
-            <h2 className="text-6xl md:text-7xl font-bold mb-8">Clients</h2>
+            <h2 className="text-7xl md:text-6xl lg:text-7xl font-bold mb-8">Clients</h2>
 
             <div className="flex items-center gap-2 mb-4">
               <div className="flex -space-x-3">

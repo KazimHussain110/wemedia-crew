@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Logo - Full width on mobile */}
           <div className="col-span-2 md:w-1/5 mb-8 md:mb-0">
             <Link href="/" className="flex-shrink-0 justify-start md:justify-start flex">
-              <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/logo-w.svg" alt="logo" className="h-8" />
+              <img src="/logo.png" alt="logo" className="h-18" />
             </Link>
           </div>
 

@@ -11,63 +11,35 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 w-full px-4 py-20 min-h-screen flex flex-col justify-between items-center max-w-[1400px] mx-auto">
-        <div className="flex-1 flex flex-col justify-center items-center">
-          <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-4 text-center">
-            a video
-          </h2>
-          <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white text-center">
-            agency
-          </h2>
-        </div>
+      <div className="absolute inset-0 z-5 bg-black/40" />
 
-        <div className="w-full">
-          <div className="w-full h-px bg-white/20 mb-6"></div>
-          <div className="flex flex-col md:flex-row gap-6 items-end justify-between">
-            <div className="max-w-md">
-              <p className="text-white text-lg md:text-xl leading-relaxed">
-                Your story comes alive with amazing visuals wrapped up in top-notch animation video production and engaging storytelling.
-              </p>
-            </div>
-
+      <div className="relative z-10 w-full px-6 md:px-12 py-20 min-h-screen flex flex-col justify-end items-start max-w-[1400px] mx-auto">
+        <div className="max-w-4xl">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+            Your Story Deserves a Crew.
+          </h1>
+          <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
+            Award-caliber corporate video production and event videography trusted by leading brands across the UAE and Canada. We capture what matters. You keep what lasts.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://clutch.co/"
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-all duration-300"
+            >
+              Get a Free Consultation
+            </a>
+            <a
+              href="https://player.vimeo.com/video/1088960671"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 group flex items-center gap-4"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/50 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
             >
-              <div className="flex flex-col">
-                <h3 className="text-white text-sm font-medium mb-2">
-                  Clutch average rating
-                </h3>
-                <h6 className="text-white text-xl font-bold mb-1">4.9 out of 5</h6>
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-4 h-4 text-[#ffd731] fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors flex-shrink-0">
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
+              <span className="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center flex-shrink-0">
+                <svg className="w-2.5 h-2.5 text-white fill-current ml-0.5" viewBox="0 0 10 10">
+                  <path d="M3 2l6 3-6 3V2z" />
                 </svg>
-              </div>
+              </span>
+              Watch Our Showreel
             </a>
           </div>
         </div>

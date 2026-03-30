@@ -1,7 +1,7 @@
 import ServicesHero from '@/components/services/ServicesHero';
 import VisionSection from '@/components/VisionSection';
 import ServicesGrid from '@/components/services/ServicesGrid';
-import ProcessSteps from '@/components/services/ProcessSteps';
+import Packages from '@/components/services/ProcessSteps';
 import Reviews from '@/components/services/Reviews';
 
 export default function ServicesPage() {
@@ -13,7 +13,7 @@ export default function ServicesPage() {
       <ServicesGrid />
       <div className="bg-[#f5f5f5] flex justify-end">
         <div className="w-4/6">
-          <ProcessSteps />
+          <Packages />
         </div>
       </div>
       <Reviews />

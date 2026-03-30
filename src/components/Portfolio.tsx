@@ -96,9 +96,9 @@ export default function Portfolio() {
         </div>
 
         <div className="mb-12 text-center">
-          <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">The Work Speaks. We Just Press Play.</h1>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Every project represents a real business challenge, a real client, and a real result.
+          <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">Projects</h1>
+          <p className="text-lg text-gray-600 max-w-2xl text-white mx-auto">
+            Well-crafted videos that tend to our customer's purpose. Explore a selection of our finest videos.
           </p>
         </div>
 

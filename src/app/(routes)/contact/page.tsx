@@ -1,18 +1,16 @@
 import ContactHero from '@/components/contact/ContactHero';
-import ContactFormSection from '@/components/contact/ContactFormSection';
 import ContactInfo from '@/components/contact/ContactInfo';
-
-export const metadata = {
-  title: 'Get a Quote | Contact WeMediaCrew | UAE & Canada Video Production',
-  description: 'Request a free video production quote. Corporate films, event coverage, aerial filming. Offices in UAE and Canada. Response within 24 hours.',
-};
+import ContactFormSection from '@/components/contact/ContactFormSection';
 
 export default function ContactPage() {
   return (
     <div className="bg-white">
       <ContactHero />
-      <ContactFormSection />
       <ContactInfo />
+      <div className="px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="h-px bg-gray-300 max-w-[1400px] mx-auto"></div>
+      </div>
+      <ContactFormSection />
     </div>
   );
 }

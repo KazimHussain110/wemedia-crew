@@ -9,35 +9,35 @@ export default function Services() {
   const services = [
     {
       id: '01',
-      title: 'Corporate Video Production',
-      description: 'Brand films, company profiles, and investor-ready content.',
+      title: 'Video productions',
+      description: 'An international digital design studio reimagining how people connect with brands.',
       videoUrl: 'https://player.vimeo.com/video/1088965285?background=1&loop=1&muted=1&controls=0&autoplay=0',
       imageUrl: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/service_6-1024x576.jpg',
-      link: '/services'
+      link: '#'
     },
     {
       id: '02',
-      title: 'Event Videography',
-      description: 'Multi-camera coverage of conferences, galas, and product launches.',
+      title: 'Digital media',
+      description: 'We prioritize flexibility, streamlined processes, and creative that positively impacts your business.',
       videoUrl: 'https://player.vimeo.com/video/1088965204?background=1&loop=1&muted=1&controls=0&autoplay=0',
       imageUrl: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/service_3-1024x539.jpg',
-      link: '/services'
+      link: '#'
     },
     {
       id: '03',
-      title: 'Aerial & Drone Videography',
-      description: 'Cinematic aerial perspectives for real estate, hospitality, and events.',
+      title: 'Commercial',
+      description: 'We are dedicated to transforming businesses by providing expert consulting services.',
       videoUrl: 'https://player.vimeo.com/video/1088965267?background=1&loop=1&muted=1&controls=0&autoplay=0',
       imageUrl: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/service_5-1024x539.jpg',
-      link: '/services'
+      link: '#'
     },
     {
       id: '04',
-      title: 'Post-Production & Editing',
-      description: 'Color grading, motion graphics, and multi-format delivery.',
+      title: 'Content creation',
+      description: 'We are a creative production company that specializes in crafting unique stories to help you better connect with your customers.',
       videoUrl: 'https://player.vimeo.com/video/1088965238?background=1&loop=1&muted=1&controls=0&autoplay=0',
       imageUrl: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/service_4-1024x576.jpg',
-      link: '/services'
+      link: '#'
     }
   ];
 
@@ -45,8 +45,8 @@ export default function Services() {
     <div className="py-20 bg-gray-100">
       <div className="services-widget-head text-center mb-20 md:mb-12 relative h-40 md:h-32 overflow-hidden">
         <div className={`transition-transform duration-500 ease-out ${hoveredService ? '-translate-y-full' : 'translate-y-0'}`}>
-          <h2 className="text-5xl md:text-4xl font-bold mb-4">What We Do</h2>
-          <p className="text-lg max-w-xl mx-auto">&ldquo;End-to-End Video Production. Two Continents. One Standard of Excellence.&rdquo;</p>
+          <h2 className="text-5xl md:text-4xl font-bold mb-4">Services</h2>
+          <p className="text-lg">We offer a full range of video services <br className="md:hidden" />tailored to businesses of all sizes, <br className="md:hidden" />including:</p>
         </div>
         <div className={`absolute inset-0 flex flex-col items-center justify-center transition-transform duration-500 ease-out ${hoveredService ? 'translate-y-0' : 'translate-y-full'}`}>
           <h2 className="text-5xl md:text-4xl font-bold">{hoveredService}</h2>
@@ -88,7 +88,7 @@ export default function Services() {
                 
                 <div className="p-6 pb-8 bg-white h-1/3 flex flex-col justify-between gap-4">
                   <div className="service-description">
-                    <p className="text-sm">{service.description}</p>
+                    <p className="text-sm line-clamp-3">{service.description}</p>
                   </div>
                   <ArrowButton href={service.link} text="Learn More" />
                 </div>

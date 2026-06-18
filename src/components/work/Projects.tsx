@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { projects } from '@/lib/workData';
+import { projects } from '../../lib/workData';
 
 const videoFilters = ['All', 'Corporate Films', 'Event Coverage', 'Aerial', 'Social Content'];
 const photoFilters = ['All', 'Brand Shoots', 'Event Coverage', 'Corporate', 'Exhibition'];

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { projects } from '@/lib/workData';
-import PhotoGallery from '@/components/work/PhotoGallery';
+import { projects } from '../../../../../lib/workData';
+import PhotoGallery from '../../../../../components/work/PhotoGallery';
 
 export function generateStaticParams() {
   return projects

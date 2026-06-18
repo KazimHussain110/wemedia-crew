@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { blogPosts } from '@/lib/blogData';
-import Badge from '@/components/ui/Badge';
+import { blogPosts } from '../../../../lib/blogData';
+import Badge from '../../../../components/ui/Badge';
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));

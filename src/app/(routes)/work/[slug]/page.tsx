@@ -1,5 +1,5 @@
 import { redirect, notFound } from 'next/navigation';
-import { projects } from '@/lib/workData';
+import { projects } from '../../../../lib/workData';
 
 export default async function LegacySlugRedirect({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

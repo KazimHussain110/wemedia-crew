@@ -1,5 +1,5 @@
-import WorkHero from '@/components/work/WorkHero';
-import Projects from '@/components/work/Projects';
+import WorkHero from '../../../components/work/WorkHero';
+import Projects from '../../../components/work/Projects';
 
 import type { Metadata } from 'next';
 

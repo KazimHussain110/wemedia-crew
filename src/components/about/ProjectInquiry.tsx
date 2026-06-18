@@ -15,7 +15,6 @@ export default function ProjectInquiry() {
       const windowHeight = window.innerHeight;
       const sectionHeight = rect.height;
       
-      // Calculate how much of the section is visible
       const visibleTop = Math.max(0, -rect.top);
       const visibleBottom = Math.min(sectionHeight, windowHeight - rect.top);
       const visibleHeight = Math.max(0, visibleBottom - visibleTop);

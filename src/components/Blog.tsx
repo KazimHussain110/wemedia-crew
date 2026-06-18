@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import ArrowButton from "./ui/ArrowButton";
 import Badge from "./ui/Badge";
-import { blogPosts } from '@/lib/blogData';
+import { blogPosts } from '../lib/blogData';
 
 export default function Blog() {
   const posts = blogPosts.slice(0, 3);

@@ -1,6 +1,6 @@
-import ContactHero from '@/components/contact/ContactHero';
-import ContactFormSection from '@/components/contact/ContactFormSection';
-import ContactInfo from '@/components/contact/ContactInfo';
+import ContactFormSection from "../../../components/contact/ContactFormSection";
+import ContactHero from "../../../components/contact/ContactHero";
+import ContactInfo from "../../../components/contact/ContactInfo";
 
 export const metadata = {
   title: 'Get a Quote | Contact WeMediaCrew | UAE & Canada Video Production',

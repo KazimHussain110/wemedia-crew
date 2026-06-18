@@ -1,8 +1,8 @@
-import ServicesHero from '@/components/services/ServicesHero';
-import VisionSection from '@/components/VisionSection';
-import ServicesGrid from '@/components/services/ServicesGrid';
-import Packages from '@/components/services/ProcessSteps';
-import Reviews from '@/components/services/Reviews';
+import ServicesHero from '../../../components/services/ServicesHero';
+import VisionSection from '../../../components/VisionSection';
+import ServicesGrid from '../../../components/services/ServicesGrid';
+import Packages from '../../../components/services/ProcessSteps';
+import Reviews from '../../../components/services/Reviews';
 
 export default function ServicesPage() {
   return (

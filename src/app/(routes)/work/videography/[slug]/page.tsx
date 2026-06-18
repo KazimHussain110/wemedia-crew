@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { projects } from '@/lib/workData';
+import { projects } from '../../../../../lib/workData';
 
 export function generateStaticParams() {
   return projects

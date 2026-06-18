@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { BlogPost } from '@/lib/blogData';
-import Badge from '@/components/ui/Badge';
+import { BlogPost } from '../../lib/blogData';
+import Badge from '../ui/Badge';
 
 const categories = [
   'All',

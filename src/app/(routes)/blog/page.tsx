@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { blogPosts } from '@/lib/blogData';
-import BlogList from '@/components/blog/BlogList';
+import BlogList from '../../../components/blog/BlogList';
+import { blogPosts } from '../../../lib/blogData';
 
 export const metadata = {
   title: 'Blog | Video Production Tips & Industry Insights | WeMediaCrew',

@@ -1,6 +1,6 @@
-import FaqHero from '@/components/faq/FaqHero';
-import FaqAccordion from '@/components/faq/FaqAccordion';
 import type { Metadata } from 'next';
+import FaqAccordion from '../../../components/faq/FaqAccordion';
+import FaqHero from '../../../components/faq/FaqHero';
 
 export const metadata: Metadata = {
   title: 'FAQ | WeMediaCrew Video Production | Pricing, Process & More',

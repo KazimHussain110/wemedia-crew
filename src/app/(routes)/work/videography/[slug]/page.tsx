@@ -104,17 +104,16 @@ export default async function VideographyDetailPage({ params }: { params: Promis
         )}
       </div>
 
-      {/* Video Embed */}
+      {/* Video */}
       {project.videoEmbed && (
         <div className="max-w-[1000px] mx-auto px-6 pb-16">
           <h2 className="text-xs uppercase tracking-widest text-gray-400 mb-6">Watch the Film</h2>
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl bg-black">
-            <iframe
+            <video
               src={project.videoEmbed}
-              title={`${project.title} — ${project.client}`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
+              controls
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
         </div>

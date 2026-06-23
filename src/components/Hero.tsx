@@ -2,12 +2,13 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <iframe
-          src="https://player.vimeo.com/video/1088960671?muted=1&autoplay=1&loop=1&background=1&app_id=122963"
-          className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-          title="Fr hero hm 1"
+        <video
+          src="https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233361/Egypt_Air_tjz8ge.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
         />
       </div>
 
@@ -29,7 +30,7 @@ export default function Hero() {
               Get a Free Consultation
             </a>
             <a
-              href="https://player.vimeo.com/video/1088960671"
+              href="/work"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/50 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"

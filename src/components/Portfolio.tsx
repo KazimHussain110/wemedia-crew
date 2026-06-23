@@ -7,43 +7,43 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: "Plan. Shoot. Deliver.",
-      description: "After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.",
-      category: "Animation",
+      title: "Seamless — Live Event Film",
+      description: "Multi-camera live event coverage captured and delivered with seamless precision for a high-profile UAE production.",
+      category: "Event Coverage",
       year: "2025",
-      videoUrl: "https://player.vimeo.com/video/1088950123?background=1&loop=1&muted=1&controls=0&autoplay=0",
-      imageUrl: "https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/project_13-1024x447.jpg",
-      link: "/projects/plan-shoot-deliver"
+      videoUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233365/Final_-_14th_may_seamless_owv17v.mp4",
+      imageUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/so_0/v1782233365/Final_-_14th_may_seamless_owv17v.jpg",
+      link: "/work/videography/seamless-live-event"
     },
     {
       id: 2,
-      title: "Bold. Clear. Cinematic.",
-      description: "After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.",
-      category: "Commercial",
+      title: "Rethink — Brand Campaign",
+      description: "A bold brand film built around a single idea: rethink what corporate video can be. Cinematic, purposeful, and built to convert.",
+      category: "Corporate Film",
       year: "2025",
-      videoUrl: "https://player.vimeo.com/video/1088950819?background=1&loop=1&muted=1&controls=0&autoplay=0",
-      imageUrl: "https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/project_12-1024x447.jpg",
-      link: "/projects/bold-clear-cinematic"
+      videoUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233359/Final_version_rethink_fwxtwk.mp4",
+      imageUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/so_0/v1782233359/Final_version_rethink_fwxtwk.jpg",
+      link: "/work/videography/rethink-brand-campaign"
     },
     {
       id: 3,
-      title: "Visuals That Sell",
-      description: "After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.",
-      category: "Motion graphics",
+      title: "Seamless AK — Conference Film",
+      description: "Full-scale conference film produced for Seamless AK — capturing keynotes, energy, and brand moments across a packed agenda.",
+      category: "Event Coverage",
       year: "2025",
-      videoUrl: "https://player.vimeo.com/video/1088950789?background=1&loop=1&muted=1&controls=0&autoplay=0",
-      imageUrl: "https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/project_11-1024x447.jpg",
-      link: "/projects/visuals-that-sell"
+      videoUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233366/seamless_AK_keor4j.mp4",
+      imageUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/so_0/v1782233366/seamless_AK_keor4j.jpg",
+      link: "/work/videography/seamless-ak-conference"
     },
     {
       id: 4,
-      title: "Crafted for Engagement",
-      description: "After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.",
-      category: "Training",
+      title: "WorldPay from FIS — Corporate Film",
+      description: "A polished corporate production for WorldPay from FIS — communicating brand trust, global reach, and financial expertise.",
+      category: "Corporate Film",
       year: "2025",
-      videoUrl: "https://player.vimeo.com/video/1088950160?background=1&loop=1&muted=1&controls=0&autoplay=0",
-      imageUrl: "https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/project_10-1024x447.jpg",
-      link: "/projects/crafted-for-engagement"
+      videoUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/v1782232545/WorldPlay_from_FIS_m3cz8q.mp4",
+      imageUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/so_0/v1782232545/WorldPlay_from_FIS_m3cz8q.jpg",
+      link: "/work/videography/worldpay-fis-corporate"
     }
   ];
 
@@ -113,9 +113,12 @@ export default function Portfolio() {
               <div className="flip-card-inner" style={{ transformStyle: 'preserve-3d', transition: 'transform 0.1s ease-out, opacity 0.1s ease-out' }}>
                 <div className="flip-card-front bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-2xl relative" style={{ backfaceVisibility: 'hidden' }}>
                 <div className="project-post-thumbnail relative overflow-hidden">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
+                  <video
+                    src={project.videoUrl}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
                     className="w-full h-[550px] object-cover"
                   />
                   

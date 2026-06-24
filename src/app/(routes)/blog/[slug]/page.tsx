@@ -50,8 +50,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <main className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="pt-32 pb-12 bg-black text-white">
-        <div className="max-w-[860px] mx-auto px-6">
+      <section className="bg-black text-white min-h-screen flex flex-col justify-end">
+        <div className="max-w-[860px] mx-auto px-6 pb-12">
           <Link href="/blog" className="inline-flex items-center gap-2 text-gray-400 text-sm mb-8 hover:text-white transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -115,7 +115,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   </div>
                 </Link>
               ))}
-            </div>
+             </div>
           </div>
         </section>
       )}

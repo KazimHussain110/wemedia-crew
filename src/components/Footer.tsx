@@ -81,7 +81,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>© 2025 <span className="text-[#ffd731]">Framek</span>. All Rights Reserved.</p>
+          <p>© 2026 <span className="text-[#ffd731]">WeMediaCrew</span>. All Rights Reserved.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-white">Privacy Policy</a>
             <a href="#" className="hover:text-white">Terms of Use</a>

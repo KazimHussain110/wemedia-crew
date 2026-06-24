@@ -17,7 +17,7 @@ export default function Introduction() {
           <div>
             <div className="pr-8 max-w-3xl">
               <p className="text-2xl md:text-3xl font-bold mb-8">
-                What began as a small production outfit serving local businesses has grown into a full-service video production company trusted by multinational corporations, government entities, hospitality brands, and event organizers across two continents.
+                What started as a small production outfit has grown into a full-service video and photography company. We work with multinational corporations, government entities, hospitality brands and event organizers across the UAE and Canada.
               </p>
               <ArrowButton href="/team" text="meet our team" />
 
@@ -29,7 +29,7 @@ export default function Introduction() {
                   <div>
                     <h5 className="text-lg font-bold mb-3 ml-4">A Team Built for This</h5>
                     <p className="text-gray-600 text-sm">
-                      Cinematographers, editors, colorists, sound designers, drone operators, and project managers — all sharing one obsession: making every frame count.
+                      Cinematographers, editors, colorists, sound designers, drone operators and project managers. All sharing one obsession: making every frame count.
                     </p>
                   </div>
                 </div>
@@ -41,7 +41,7 @@ export default function Introduction() {
                   <div>
                     <h5 className="text-lg font-bold mb-3 ml-4">Two Continents, One Standard</h5>
                     <p className="text-gray-600 text-sm">
-                      From 5,000-person trade shows in Abu Dhabi to intimate C-suite interviews in Toronto — every project sharpened our process, every client raised our standard.
+                      From trade shows in Abu Dhabi to C-suite interviews in Toronto. Every project sharpens our process. Every client raises our standard.
                     </p>
                   </div>
                 </div>
@@ -51,9 +51,9 @@ export default function Introduction() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-none mx-auto mt-0 relative z-20 -mt-20">
-          <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/h1_img-1.jpg" alt="Project 1" className="w-full h-48 md:h-64 object-cover rounded-lg" />
-          <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/h1_img-3.jpg" alt="Project 2" className="w-full h-48 md:h-64 object-cover rounded-lg" />
-          <img src="https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/h1_img-2.jpg" alt="Project 3" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+          <img src="/photos/Restaurant/getFlashy-1.webp" alt="Restaurant Photography" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+          <img src="/photos/Dubai Air Show Exibition/TAK-111_compressed.webp" alt="Dubai Air Show" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+          <img src="/photos/Etsalat Atlantes/DSC05451.jpg" alt="Etisalat Atlantes" className="w-full h-48 md:h-64 object-cover rounded-lg" />
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Budgeting for a corporate video in Dubai? We break down every cost factor — crew, equipment, location, and post-production — so you know exactly what to expect.',
     category: 'Corporate Video Tips',
     date: 'January 10, 2026',
-    image: 'https://images.unsplash.com/photo-1601506521793-dc748fc80b67?w=1200&q=80',
+    image: '/photos/Cricket Event/CCA_7229.webp',
     content: `
 Corporate video production in Dubai sits at the intersection of world-class ambition and genuine complexity. Whether you are a CMO planning your first brand film or an event director commissioning a same-day highlight reel, understanding what drives cost is the first step to getting real value.
 
@@ -60,7 +60,7 @@ At WeMediaCrew, we work with brands across the UAE to deliver broadcast-ready vi
     excerpt: 'A same-day edit turns your conference into a content moment that lives far beyond the venue. Here is why it works and exactly how we pull it off.',
     category: 'Event Coverage Insights',
     date: 'January 22, 2026',
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80',
+    image: '/photos/Food Exibition Dubai/Getflashy-1.webp',
     content: `
 You have spent months planning a conference. Speakers have flown in from three continents. The venue is immaculate. And by 6pm on day one, most of your audience — including the people who could not attend — have no idea it happened.
 
@@ -105,7 +105,7 @@ We have delivered SDEs for conferences with 5,000+ attendees in Abu Dhabi and in
     excerpt: 'Video is one of the most powerful tools in your marketing stack — but how do you prove it to the CFO? Here is a practical framework for measuring video ROI.',
     category: 'Marketing Strategy',
     date: 'February 5, 2026',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
+    image: '/photos/Canada Action Sports/Getflashy-1.webp',
     content: `
 Every CMO knows video works. The challenge is proving it in a language the finance team understands. ROI is not just about views — it is about what those views do for your pipeline, your brand equity, and your bottom line.
 

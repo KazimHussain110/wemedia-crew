@@ -8,28 +8,28 @@ const testimonials = [
     author: "Sarah Mitchell",
     title: "VP of Brand & Communications",
     company: "Nexora Group",
-    headshot: "https://randomuser.me/api/portraits/women/44.jpg",
+    headshot: "/photos/ADNEC/Tariq AK Production-109.webp",
   },
   {
     quote: "From concept to final cut, the WeMediaCrew team brought a level of creative precision we hadn't seen before. Our product launch video drove a 40% increase in qualified leads within the first month.",
     author: "Daniel Osei",
     title: "Chief Marketing Officer",
     company: "Vantara Capital",
-    headshot: "https://randomuser.me/api/portraits/men/32.jpg",
+    headshot: "/photos/Worldpay/TAKP-52.webp",
   },
   {
     quote: "We needed a partner who could handle high-stakes executive interviews with discretion and quality. WeMediaCrew exceeded every expectation — the final deliverable was broadcast-ready.",
     author: "Priya Nair",
     title: "Head of Corporate Affairs",
     company: "Stratum Logistics",
-    headshot: "https://randomuser.me/api/portraits/women/68.jpg",
+    headshot: "/photos/ADNEC/Tariq AK Production-133.webp",
   },
   {
     quote: "The team's ability to distill a complex product story into a compelling two-minute film was remarkable. Our sales team now uses it in every pitch — it closes deals faster than any deck we've built.",
     author: "Marcus Ellroy",
     title: "Director of Sales Enablement",
     company: "Crestline Technologies",
-    headshot: "https://randomuser.me/api/portraits/men/75.jpg",
+    headshot: "/photos/Worldpay/TAKP-20.webp",
   },
 ];
 

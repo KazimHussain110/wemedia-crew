@@ -1,21 +1,18 @@
-import Link from 'next/link';
-import ArrowButton from '../ui/ArrowButton';
-
 export default function AboutHero() {
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=600&fit=crop")'}}>
-      <div className="absolute inset-0 bg-black/40"></div>
-      <div className="relative max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 min-h-[550px] flex flex-col justify-end pb-8">
-        <h1 className="text-6xl md:text-7xl font-bold mb-8 text-white">About</h1>
-        <div className="h-px bg-gray-400 mb-6"></div>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <div className="flex items-center gap-2 text-sm text-gray-200">
-            <Link href="/" className="hover:text-[#ffd731] transition-colors">Home</Link>
-            <span>·</span>
-            <span>About</span>
-          </div>
-          <ArrowButton href="/projects" text="EXPLORE OUR REELS" bgColor="bg-white" textColor="text-black" />
-        </div>
+    <section
+      className="relative bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=600&fit=crop")' }}
+    >
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="relative w-full px-6 sm:px-8 lg:px-12 xl:px-16 min-h-screen flex flex-col justify-end pb-16">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+          Who We Are.
+        </h1>
+        <p className="text-gray-300 text-sm leading-relaxed mb-6">
+          A production crew built for brands that take their story seriously — operating across Dubai, Abu Dhabi, and Toronto.
+        </p>
+        <div className="h-px bg-gray-600 mb-0" />
       </div>
     </section>
   );

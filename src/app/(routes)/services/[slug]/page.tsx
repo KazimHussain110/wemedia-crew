@@ -34,17 +34,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           alt={service.title}
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12 pt-36 pb-20 min-h-[580px] flex flex-col justify-end">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12 min-h-screen flex flex-col justify-end pb-20">
           <Link href="/services" className="inline-flex items-center gap-2 text-gray-400 text-sm mb-8 hover:text-white transition-colors w-fit">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             All Services
           </Link>
-          <div className="flex items-center gap-2 mb-4">
-            <svg className="w-2 h-2 fill-[#ffd731]" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" /></svg>
-            <span className="text-xs uppercase tracking-widest text-gray-400">{service.title}</span>
-          </div>
           <h1 className="text-4xl md:text-6xl font-black leading-tight max-w-4xl mb-6">
             {service.tagline}
           </h1>

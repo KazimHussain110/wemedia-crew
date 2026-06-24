@@ -11,14 +11,8 @@ export default function BlogPage() {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-black text-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="flex items-center gap-2 mb-6">
-            <svg className="w-2 h-2 fill-[#ffd731]" viewBox="0 0 512 512">
-              <circle cx="256" cy="256" r="256" />
-            </svg>
-            <span className="text-sm uppercase tracking-wider text-gray-400">WeMediaCrew Blog</span>
-          </div>
+      <section className="bg-black text-white min-h-screen flex flex-col justify-end">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pb-16">
           <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none">Insights &<br />Ideas</h1>
           <p className="text-gray-400 text-lg max-w-xl">
             Video strategy, production tips, and industry insights for brands that take their content seriously.

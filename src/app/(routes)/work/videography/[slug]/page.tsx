@@ -31,8 +31,8 @@ export default async function VideographyDetailPage({ params }: { params: Promis
     <main className="bg-white min-h-screen">
 
       {/* Hero */}
-      <section className="pt-32 pb-12 bg-black text-white">
-        <div className="max-w-[1000px] mx-auto px-6">
+      <section className="bg-black text-white min-h-screen flex flex-col justify-end">
+        <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 pb-16">
           <Link href="/work" className="inline-flex items-center gap-2 text-gray-400 text-sm mb-8 hover:text-white transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -54,15 +54,6 @@ export default async function VideographyDetailPage({ params }: { params: Promis
         </div>
       </section>
 
-      {/* Thumbnail */}
-      <div className="max-w-[1100px] mx-auto px-6 mt-10">
-        <img
-          src={project.thumbnail}
-          alt={`${project.title} — ${project.client} | WeMediaCrew`}
-          loading="lazy"
-          className="w-full h-[420px] md:h-[520px] object-cover rounded-2xl shadow-2xl"
-        />
-      </div>
 
       {/* Case Study Body */}
       <div className="max-w-[1000px] mx-auto px-6 py-16">
@@ -79,7 +70,22 @@ export default async function VideographyDetailPage({ params }: { params: Promis
           ))}
         </div>
 
-        <div className="space-y-12">
+        
+      {/* Video — moved directly after hero */}
+      {project.videoEmbed && (
+        <div className="max-w-[1100px] mx-auto px-6 mt-10">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+            <video
+              src={project.videoEmbed}
+              controls
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      )}
+
+        <div className="space-y-12 mt-10">
           <div>
             <h2 className="text-xs uppercase tracking-widest text-gray-400 mb-3">The Challenge</h2>
             <p className="text-gray-700 text-lg leading-relaxed">{project.challenge}</p>
@@ -104,22 +110,7 @@ export default async function VideographyDetailPage({ params }: { params: Promis
         )}
       </div>
 
-      {/* Video */}
-      {project.videoEmbed && (
-        <div className="max-w-[1000px] mx-auto px-6 pb-16">
-          <h2 className="text-xs uppercase tracking-widest text-gray-400 mb-6">Watch the Film</h2>
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl bg-black">
-            <video
-              src={project.videoEmbed}
-              controls
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      )}
 
-      {/* CTA */}
       <section className="bg-[#ffd731] py-16">
         <div className="max-w-[1000px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>

@@ -24,7 +24,7 @@ export default function Blog() {
 
         {/* Title & Description */}
         <div className="text-center mb-16">
-          <h2 className="text-7xl md:text-8xl lg:text-9xl mb-6" style={{ fontWeight: '800 !important' }}>Blog</h2>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl mb-6">Blog</h2>
           <p className="text-gray-500 text-lg">
             Stay ahead with actionable insights, expert advice, and<br />practical strategies for digital success.
           </p>

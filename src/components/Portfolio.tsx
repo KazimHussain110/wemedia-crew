@@ -63,7 +63,7 @@ export default function Portfolio() {
         <div className="mb-10 text-center">
           <h2 className="text-5xl font-bold text-white mb-4">Work That Earned Its Place Here.</h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Real clients, real briefs, real results — every project on this page was built to do a job.
+            Real clients, real briefs, real results every project on this page was built to do a job.
           </p>
         </div>
 
@@ -108,38 +108,49 @@ export default function Portfolio() {
               return (
                 <div
                   key={project.slug}
-                  className="w-full flex-shrink-0 relative rounded-2xl overflow-hidden"
+                  className="w-full flex-shrink-0 rounded-2xl overflow-hidden"
                 >
-                  {/* Media */}
-                  {project.medium === 'video' ? (
-                    <video
-                      src={(project as any).videoEmbed}
-                      autoPlay={isActive}
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-[520px] object-cover"
-                    />
-                  ) : (
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      className="w-full h-[520px] object-cover"
-                    />
-                  )}
+                  {/* Media wrapper — relative only on md+ for overlay positioning */}
+                  <div className="relative">
+                    {project.medium === 'video' ? (
+                      <video
+                        src={(project as any).videoEmbed}
+                        autoPlay={isActive}
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-[240px] md:h-[520px] object-cover"
+                      />
+                    ) : (
+                      <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="w-full h-[240px] md:h-[520px] object-cover"
+                      />
+                    )}
 
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                    {/* Gradient overlay — desktop only */}
+                    <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
-                  {/* Top right — description + CTA */}
-                  <div className="absolute top-6 right-6 max-w-sm text-right">
-                    <p className="text-white/80 text-sm leading-relaxed mb-3">{desc}</p>
-                    <ArrowButton href={link} text="View Project" bgColor="bg-white" textColor="text-black" />
+                    {/* Top right — description + CTA — desktop only */}
+                    <div className="hidden md:block absolute top-6 right-6 max-w-sm text-right">
+                      <p className="text-white/80 text-sm leading-relaxed mb-3">{desc}</p>
+                      <ArrowButton href={link} text="View Project" bgColor="bg-white" textColor="text-black" />
+                    </div>
+
+                    {/* Bottom left — title + meta — desktop only */}
+                    <div className="hidden md:block absolute bottom-6 left-6">
+                      <h3 className="text-white text-4xl font-bold mb-2">{project.title}</h3>
+                      <div className="flex items-center gap-3 text-sm">
+                        <span className="text-[#ffd731] font-semibold">{project.projectType}</span>
+                        <span className="text-gray-400">{project.year}</span>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Bottom left — title + meta */}
-                  <div className="absolute bottom-6 left-6">
-                    <h3 className="text-white text-4xl font-bold mb-2">{project.title}</h3>
+                  {/* Below-card content — mobile only */}
+                  <div className="md:hidden bg-[#1a1a1a] px-4 py-4">
+                    <h3 className="text-white text-2xl font-bold mb-1">{project.title}</h3>
                     <div className="flex items-center gap-3 text-sm">
                       <span className="text-[#ffd731] font-semibold">{project.projectType}</span>
                       <span className="text-gray-400">{project.year}</span>

@@ -1,151 +1,193 @@
 "use client"
 
+import { useState, useRef } from 'react';
 import ArrowButton from './ui/ArrowButton';
-import { useEffect, useRef } from 'react';
+import { projects } from '../lib/workData';
+
+const photoProjects = projects.filter((p) => p.medium === 'photography');
+const videoProjects = projects.filter((p) => p.medium === 'video');
+
+const humanizedDescriptions: Record<string, string> = {
+  'adnec-event-coverage': "Abu Dhabi's biggest conference hall, one crew, zero missed moments. We moved through keynotes and corridors and came back with frames that actually tell the story.",
+  'canada-action-sports': "Sweat, speed, and split-second decisions. We embedded with the athletes and shot the moments that make you feel the impact even in a still frame.",
+  'cricket-event-photography': "Six frames. Six wickets. A tournament that crackled with intensity from the first ball. We were on the boundary, and we didn't blink.",
+  'etisalat-atlantes-event': "A product launch is only as powerful as the story told around it. We captured the executives, the reveals, and the energy that no press release can convey.",
+  'dubai-air-show': "Machines that defy gravity, crowds that hold their breath. We walked the tarmac and made every frame feel as big as the sky above it.",
+  'food-exhibition-dubai': "Dubai's biggest food show and every stall had a story. We chased colour, steam, and the faces of people genuinely excited about what they'd made.",
+  'worldpay-corporate': "Finance doesn't have to feel cold. We found the warmth in the room — the handshakes, the candid laughs — and turned a corporate event into a genuine human story.",
+  'restaurant-photography': "Good food deserves to be seen. We lit every dish and framed every corner until the photos made you hungry before you'd even read the menu.",
+  'egypt-air-brand-film': "A legacy airline, a blank canvas. We built a cinematic world around the poetry of flight — and made every second feel like somewhere you want to be.",
+  'seamless-live-event': "Some rooms have a pulse. This was one of them. We put four cameras in, chased the energy, and brought the whole night back to life on screen.",
+  'rethink-brand-campaign': "What if your brand film didn't feel like a brand film? That was the brief. We threw out the script, kept the soul, and built something people actually watch.",
+  'seamless-ak-conference': "A full-day conference, hundreds of moments, one story. We captured the keynotes, the side conversations, and the electric in-between — then made it all feel like one.",
+  'worldpay-fis-corporate': "Global brand. Human story. We stripped back the corporate polish just enough to let the real people and real purpose shine through — and the client loved it.",
+};
+
+type Tab = 'photography' | 'videography';
 
 export default function Portfolio() {
-  const projects = [
-    {
-      id: 1,
-      title: "Seamless — Live Event Film",
-      description: "Multi-camera live event coverage captured and delivered with seamless precision for a high-profile UAE production.",
-      category: "Event Coverage",
-      year: "2025",
-      videoUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233365/Final_-_14th_may_seamless_owv17v.mp4",
-      imageUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/so_0/v1782233365/Final_-_14th_may_seamless_owv17v.jpg",
-      link: "/work/videography/seamless-live-event"
-    },
-    {
-      id: 2,
-      title: "Rethink — Brand Campaign",
-      description: "A bold brand film built around a single idea: rethink what corporate video can be. Cinematic, purposeful, and built to convert.",
-      category: "Corporate Film",
-      year: "2025",
-      videoUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233359/Final_version_rethink_fwxtwk.mp4",
-      imageUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/so_0/v1782233359/Final_version_rethink_fwxtwk.jpg",
-      link: "/work/videography/rethink-brand-campaign"
-    },
-    {
-      id: 3,
-      title: "Seamless AK — Conference Film",
-      description: "Full-scale conference film produced for Seamless AK — capturing keynotes, energy, and brand moments across a packed agenda.",
-      category: "Event Coverage",
-      year: "2025",
-      videoUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233366/seamless_AK_keor4j.mp4",
-      imageUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/so_0/v1782233366/seamless_AK_keor4j.jpg",
-      link: "/work/videography/seamless-ak-conference"
-    },
-    {
-      id: 4,
-      title: "WorldPay from FIS — Corporate Film",
-      description: "A polished corporate production for WorldPay from FIS — communicating brand trust, global reach, and financial expertise.",
-      category: "Corporate Film",
-      year: "2025",
-      videoUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/v1782232545/WorldPlay_from_FIS_m3cz8q.mp4",
-      imageUrl: "https://res.cloudinary.com/ddaovfpbu/video/upload/so_0/v1782232545/WorldPlay_from_FIS_m3cz8q.jpg",
-      link: "/work/videography/worldpay-fis-corporate"
-    }
-  ];
+  const [activeTab, setActiveTab] = useState<Tab>('photography');
+  const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number | null>(null);
 
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const items = activeTab === 'photography' ? photoProjects : videoProjects;
+  const total = items.length;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      cardRefs.current.forEach((card) => {
-        if (!card) return;
+  const prev = () => setCurrent((c) => (c - 1 + total) % total);
+  const next = () => setCurrent((c) => (c + 1) % total);
 
-        const rect = card.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const cardCenter = rect.top + rect.height / 2;
-        const screenCenter = windowHeight / 2;
-        const distance = cardCenter - screenCenter;
-        const maxDistance = windowHeight / 2;
-        
-        // Calculate rotation based on distance from center (reduced flip angle)
-        let rotation = -(distance / maxDistance) * 45;
-        rotation = Math.max(-45, Math.min(45, rotation));
-        
-        // Calculate opacity based on position
-        const opacity = 1 - Math.abs(distance) / maxDistance;
-        
-        const inner = card.querySelector('.flip-card-inner') as HTMLElement;
-        if (inner) {
-          inner.style.transform = `rotateX(${rotation}deg)`;
-          inner.style.opacity = `${Math.max(0.3, opacity)}`;
-        }
-      });
-    };
+  const switchTab = (tab: Tab) => {
+    setActiveTab(tab);
+    setCurrent(0);
+  };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const getLink = (slug: string, medium: string) =>
+    medium === 'photography' ? `/work/photography/${slug}` : `/work/videography/${slug}`;
 
   return (
-    <section className="py-20 bg-[#2B2B2B] relative z-10 -mt-27">
+    <section className="pt-20 pb-36 bg-[#2B2B2B] relative z-10 -mt-27">
       <div className="w-[90%] mx-auto px-4">
-        <div className="flex items-center justify-between mb-16 text-white">
+
+        {/* Header */}
+        <div className="flex items-center justify-between mb-12 text-white">
           <div className="flex items-center gap-2">
             <svg className="w-2 h-2 fill-white" viewBox="0 0 512 512">
               <circle cx="256" cy="256" r="256" />
             </svg>
             <span className="text-sm uppercase tracking-wider">portfolio</span>
           </div>
-          <ArrowButton href="/projects" text="view our work" />
+          <ArrowButton href="/work" text="view all work" />
         </div>
 
-        <div className="mb-12 text-center">
-          <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">The Work Speaks. We Just Press Play.</h1>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Every project represents a real business challenge, a real client, and a real result.
+        {/* Title */}
+        <div className="mb-10 text-center">
+          <h2 className="text-5xl font-bold text-white mb-4">Work That Earned Its Place Here.</h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Real clients, real briefs, real results — every project on this page was built to do a job.
           </p>
         </div>
 
-        <div className="flex flex-col gap-8 py-20">
-          {projects.map((project, index) => (
-            <div 
-              key={project.id} 
-              ref={(el) => { cardRefs.current[index] = el; }}
-              className="flip-card mx-auto w-full max-w-7xl"
-              style={{ perspective: '1000px' }}
-            >
-              <div className="flip-card-inner" style={{ transformStyle: 'preserve-3d', transition: 'transform 0.1s ease-out, opacity 0.1s ease-out' }}>
-                <div className="flip-card-front bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-2xl relative" style={{ backfaceVisibility: 'hidden' }}>
-                <div className="project-post-thumbnail relative overflow-hidden">
-                  <video
-                    src={project.videoUrl}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
-                    className="w-full h-[550px] object-cover"
-                  />
-                  
-                  {/* Bottom Left - Title & Meta */}
-                  <div className="absolute bottom-8 left-8 flex flex-col">
-                    <h4 className="project-title text-5xl font-bold text-white mb-3">
-                      {project.title}
-                    </h4>
-                    <div className="project-meta flex items-center gap-4 text-sm text-gray-300">
-                      <span className="text-[#ffd731]">{project.category}</span>
-                      <span>{project.year}</span>
+        {/* Tabs */}
+        <div className="flex justify-center mb-10">
+          <div className="flex bg-[#1a1a1a] rounded-full p-1 gap-1">
+            {(['photography', 'videography'] as Tab[]).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => switchTab(tab)}
+                className={`px-6 py-2 rounded-full text-sm uppercase tracking-widest font-semibold transition-all duration-300 ${
+                  activeTab === tab ? 'bg-[#ffd731] text-black' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Carousel viewport */}
+        <div
+          className="relative overflow-hidden"
+          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const diff = touchStartX.current - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+            touchStartX.current = null;
+          }}
+        >
+          {/* Sliding track — all cards in one row, translateX moves it */}
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {items.map((project, i) => {
+              const desc = humanizedDescriptions[project.slug] || project.description;
+              const link = getLink(project.slug, project.medium);
+              const isActive = i === current;
+
+              return (
+                <div
+                  key={project.slug}
+                  className="w-full flex-shrink-0 relative rounded-2xl overflow-hidden"
+                >
+                  {/* Media */}
+                  {project.medium === 'video' ? (
+                    <video
+                      src={(project as any).videoEmbed}
+                      autoPlay={isActive}
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-[520px] object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title}
+                      className="w-full h-[520px] object-cover"
+                    />
+                  )}
+
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+
+                  {/* Top right — description + CTA */}
+                  <div className="absolute top-6 right-6 max-w-sm text-right">
+                    <p className="text-white/80 text-sm leading-relaxed mb-3">{desc}</p>
+                    <ArrowButton href={link} text="View Project" bgColor="bg-white" textColor="text-black" />
+                  </div>
+
+                  {/* Bottom left — title + meta */}
+                  <div className="absolute bottom-6 left-6">
+                    <h3 className="text-white text-4xl font-bold mb-2">{project.title}</h3>
+                    <div className="flex items-center gap-3 text-sm">
+                      <span className="text-[#ffd731] font-semibold">{project.projectType}</span>
+                      <span className="text-gray-400">{project.year}</span>
                     </div>
                   </div>
-                  
-                  {/* Top Right - Description & Button */}
-                  <div className="absolute top-8 right-8 max-w-md text-right">
-                    <div className="project-excerpt text-white mb-4">
-                      {project.description}
-                    </div>
-                    <ArrowButton href={project.link} text="View Project" bgColor="bg-white" textColor="text-black" />
-                  </div>
                 </div>
-                </div>
-              </div>
-            </div>
+              );
+            })}
+          </div>
+
+          {/* Prev arrow */}
+          <button
+            onClick={prev}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 border border-white/10 text-white hover:bg-[#ffd731] hover:text-black transition-all duration-300"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            onClick={next}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 border border-white/10 text-white hover:bg-[#ffd731] hover:text-black transition-all duration-300"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2 mt-6">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === current ? 'w-8 bg-[#ffd731]' : 'w-1.5 bg-white/20 hover:bg-white/40'
+              }`}
+            />
           ))}
         </div>
+
+        {/* Counter */}
+        <p className="text-center text-gray-500 text-sm mt-3">
+          {String(current + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+        </p>
+
       </div>
     </section>
   );

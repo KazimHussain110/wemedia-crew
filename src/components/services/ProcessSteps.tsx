@@ -1,10 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ArrowButton from '../ui/ArrowButton';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
@@ -30,143 +27,138 @@ const steps = [
   },
 ];
 
-export default function Packages() {
-  const [activeStep, setActiveStep] = useState(0);
-  const [displayStep, setDisplayStep] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
-  const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
+function CarouselPackages() {
+  const [active, setActive] = useState(0);
+  const [display, setDisplay] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const isAnimating = useRef(false);
 
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const triggers = stepsRef.current.map((step, index) => {
-      if (!step) return null;
-      
-      return ScrollTrigger.create({
-        trigger: step,
-        start: 'center center',
-        end: 'bottom center',
-        onEnter: () => setActiveStep(index),
-        onEnterBack: () => setActiveStep(index),
-      });
-    });
-
-    return () => {
-      triggers.forEach(trigger => trigger?.kill());
-    };
-  }, [activeStep]);
-
-  useEffect(() => {
-    if (activeStep === displayStep || isAnimating.current) return;
-    
+  const goTo = (index: number) => {
+    if (isAnimating.current || index === active) return;
     isAnimating.current = true;
+
     const tl = gsap.timeline({
-      onComplete: () => {
-        isAnimating.current = false;
-      }
+      onComplete: () => { isAnimating.current = false; }
     });
-    
-    tl.to(contentRef.current, { 
-      y: -30, 
-      opacity: 0, 
-      duration: 0.25, 
-      ease: 'power2.in' 
-    })
-    .to(imageRef.current, { 
-      y: 30, 
-      opacity: 0, 
-      duration: 0.25, 
-      ease: 'power2.in' 
-    }, '<')
-    .call(() => setDisplayStep(activeStep))
-    .set(contentRef.current, { y: 30 })
-    .set(imageRef.current, { y: -30 })
-    .to(contentRef.current, { 
-      y: 0, 
-      opacity: 1, 
-      duration: 0.25, 
-      ease: 'power2.out' 
-    })
-    .to(imageRef.current, { 
-      y: 0, 
-      opacity: 1, 
-      duration: 0.25, 
-      ease: 'power2.out' 
-    }, '<');
-  }, [activeStep, displayStep]);
+
+    tl.to(contentRef.current, { y: -30, opacity: 0, duration: 0.25, ease: 'power2.in' })
+      .to(imageRef.current, { y: 30, opacity: 0, duration: 0.25, ease: 'power2.in' }, '<')
+      .call(() => { setDisplay(index); setActive(index); })
+      .set(contentRef.current, { y: 30 })
+      .set(imageRef.current, { y: -30 })
+      .to(contentRef.current, { y: 0, opacity: 1, duration: 0.25, ease: 'power2.out' })
+      .to(imageRef.current, { y: 0, opacity: 1, duration: 0.25, ease: 'power2.out' }, '<');
+  };
+
+  const prev = () => goTo((active - 1 + steps.length) % steps.length);
+  const next = () => goTo((active + 1) % steps.length);
 
   return (
-    <section ref={sectionRef} className="w-full py-24 bg-gray-100">
+    <div className="flex items-center gap-4">
+      {/* Prev button */}
+      <button
+        onClick={prev}
+        className="shrink-0 w-11 h-11 flex items-center justify-center rounded-full bg-black/10 border border-black/20 text-black hover:bg-black hover:text-white transition-all duration-300"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      {/* Card */}
+      <div className="flex-1 grid grid-cols-[1.2fr_2fr] h-[500px]">
+        <div className="p-6 rounded-l-2xl overflow-hidden bg-white flex flex-col h-full">
+          <div ref={contentRef} className="flex-1 flex flex-col">
+            <h3 className="text-2xl font-bold mb-6">{steps[display].title}</h3>
+            <p className="text-gray-600 flex-1">{steps[display].description}</p>
+            <div className="border-t border-gray-300 pt-4 mt-6 flex justify-between items-center">
+              <span className="text-sm font-semibold">STARTING FROM</span>
+              <span className="text-sm font-semibold">{steps[display].timeline}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative rounded-r-2xl overflow-hidden h-full">
+          <img
+            ref={imageRef}
+            src={steps[display].image}
+            alt={steps[display].title}
+            className="w-full h-full object-cover"
+          />
+          {/* Counter */}
+          <div className="absolute bottom-5 left-5 text-white/70 text-sm font-semibold">
+            {String(active + 1).padStart(2, '0')} / {String(steps.length).padStart(2, '0')}
+          </div>
+        </div>
+      </div>
+
+      {/* Next button */}
+      <button
+        onClick={next}
+        className="shrink-0 w-11 h-11 flex items-center justify-center rounded-full bg-black/10 border border-black/20 text-black hover:bg-black hover:text-white transition-all duration-300"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
+function MobilePackages() {
+  return (
+    <div className="space-y-6">
+      {steps.map((step, index) => (
+        <div key={index} className="bg-white rounded-2xl overflow-hidden">
+          <img
+            src={step.image}
+            alt={step.title}
+            className="w-full h-48 object-cover"
+          />
+          <div className="p-5">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-sm font-bold bg-black text-white rounded-full w-8 h-8 flex items-center justify-center shrink-0">
+                {step.number}
+              </span>
+              <h3 className="text-lg font-bold">{step.title}</h3>
+            </div>
+            <p className="text-gray-600 text-sm mb-4">{step.description}</p>
+            <div className="border-t border-gray-200 pt-3 flex justify-between items-center">
+              <span className="text-xs font-semibold text-gray-500">STARTING FROM</span>
+              <span className="text-sm font-semibold">{step.timeline}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default function Packages() {
+  return (
+    <section className="w-full py-24 bg-gray-100">
       <div className="max-w-[1600px] mx-auto px-4">
-        <div className="max-w-4xl mb-12 md:mb-24">
+        <div className="max-w-4xl mb-12 lg:mb-16 mx-auto text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             Transparent Pricing. No Surprises.
           </h2>
-          <p className="text-gray-600 mb-6 md:mb-8 max-w-2xl">
+          <p className="text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
             We offer flexible engagement models depending on your scope and budget. All packages include a dedicated project manager, pre-production planning, and revision rounds.
           </p>
-          <ArrowButton href="/contact" text="REQUEST A CUSTOM QUOTE" />
+          <div className="flex justify-center">
+            <ArrowButton href="/contact" text="REQUEST A CUSTOM QUOTE" />
+          </div>
         </div>
 
-        <div className="flex gap-3 lg:gap-12 items-start -mx-4 px lg:mx-0 lg:px-0">
-          <div className="sticky top-24 flex flex-col pt-30 relative mx-auto lg:mx-0">
-            {steps.map((step, index) => (
-              <div key={index} className="relative flex flex-col items-center">
-                <span
-                  className={`text-xl font-bold rounded-full w-12 h-12 flex items-center justify-center transition-colors z-10 ${
-                    activeStep >= index ? 'bg-black text-white' : 'bg-gray-300 text-gray-600'
-                  }`}>
-                  {step.number}
-                </span>
-                {index < steps.length - 1 && (
-                  <div className="w-0.5 h-6 bg-gray-300 relative overflow-hidden">
-                    <div 
-                      className="absolute top-0 left-0 w-full bg-black transition-all duration-500"
-                      style={{ height: activeStep > index ? '100%' : '0%' }}
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+        {/* Mobile & tablet */}
+        <div className="lg:hidden">
+          <MobilePackages />
+        </div>
 
-          <div className="flex-1 w-full">
-            <div className="lg:sticky top-24 grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-4 lg:gap-0 h-auto lg:h-[500px]">
-              <div className="p-4 md:p-6 rounded overflow-hidden bg-white flex flex-col h-auto lg:h-full min-h-[250px]">
-                <div ref={contentRef} className="flex-1 flex flex-col">
-                  <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">{steps[displayStep].title}</h3>
-                  <p className="text-gray-600 flex-1 text-sm md:text-base">{steps[displayStep].description}</p>
-                  <div className="border-t border-gray-300 pt-3 md:pt-4 mt-4 md:mt-6 flex justify-between items-center">
-                    <span className="text-sm font-semibold">STARTING FROM</span>
-                    <span className="text-sm font-semibold">{steps[displayStep].timeline}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded overflow-hidden h-[200px] lg:h-auto">
-                <img
-                  ref={imageRef}
-                  src={steps[displayStep].image}
-                  alt={steps[displayStep].title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2 mt-6 lg:mt-0">
-              {steps.map((step, index) => (
-                <div
-                  key={index}
-                  ref={(el) => { stepsRef.current[index] = el; }}
-                  className="h-[350px] lg:h-[500px]"
-                />
-              ))}
-            </div>
-
-          </div>
+        {/* Desktop — carousel */}
+        <div className="hidden lg:block">
+          <CarouselPackages />
         </div>
       </div>
     </section>

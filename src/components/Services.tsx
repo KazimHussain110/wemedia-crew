@@ -18,7 +18,7 @@ export default function Services() {
     {
       id: '02',
       title: 'Event Videography',
-      description: 'Multi-camera coverage of conferences, galas, and product launches.',
+      description: 'Multi-camera coverage of galas, conferences, and product launches.',
       videoUrl: 'https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233365/Final_-_14th_may_seamless_owv17v.mp4',
       imageUrl: '/photos/ADNEC/HUQ_9706.webp',
       link: '/services'
@@ -43,8 +43,14 @@ export default function Services() {
 
   return (
     <div className="py-20 bg-gray-100">
-      <div className="services-widget-head text-center mb-20 md:mb-12 relative h-40 md:h-32 overflow-hidden">
+      <div className="services-widget-head text-center mb-20 md:mb-12 relative h-48 md:h-40 overflow-hidden">
         <div className={`transition-transform duration-500 ease-out ${hoveredService ? '-translate-y-full' : 'translate-y-0'}`}>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <svg className="w-2 h-2 fill-black" viewBox="0 0 512 512">
+              <circle cx="256" cy="256" r="256" />
+            </svg>
+            <span className="text-sm uppercase tracking-wider text-gray-500">what we do</span>
+          </div>
           <h2 className="text-5xl md:text-4xl font-bold mb-4">What We Do</h2>
           <p className="text-lg max-w-xl mx-auto">&ldquo;End-to-End Video Production. Two Continents. One Standard of Excellence.&rdquo;</p>
         </div>

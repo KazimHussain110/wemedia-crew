@@ -131,6 +131,8 @@ export default function Portfolio() {
 
                     {/* Gradient overlay — desktop only */}
                     <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                    {/* Top-right overlay for text readability — desktop only */}
+                    <div className="hidden md:block absolute inset-0 bg-gradient-to-bl from-black/60 via-transparent to-transparent" />
 
                     {/* Top right — description + CTA — desktop only */}
                     <div className="hidden md:block absolute top-6 right-6 max-w-sm text-right">
@@ -194,10 +196,7 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Counter */}
-        <p className="text-center text-gray-500 text-sm mt-3">
-          {String(current + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
-        </p>
+
 
       </div>
     </section>

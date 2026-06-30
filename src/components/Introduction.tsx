@@ -49,11 +49,14 @@ export default function Introduction() {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-none mx-auto mt-0 relative z-20 -mt-20">
-          <img src="/photos/Restaurant/getFlashy-1.webp" alt="Restaurant Photography" className="w-full h-48 md:h-64 object-cover rounded-lg" />
-          <img src="/photos/Dubai Air Show Exibition/TAK-111_compressed.webp" alt="Dubai Air Show" className="w-full h-48 md:h-64 object-cover rounded-lg" />
-          <img src="/photos/Etsalat Atlantes/DSC05451.jpg" alt="Etisalat Atlantes" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+      {/* Images — full width outside the 80% container */}
+      <div className="w-[90%] mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-0 relative z-20">
+          <img src="/photos/Restaurant/getFlashy-1.webp" alt="Restaurant Photography" className="w-full h-64 md:h-72 object-cover rounded-lg" />
+          <img src="/photos/Dubai Air Show Exibition/TAK-111_compressed.webp" alt="Dubai Air Show" className="w-full h-64 md:h-72 object-cover rounded-lg" />
+          <img src="/photos/Etsalat Atlantes/DSC05451.jpg" alt="Etisalat Atlantes" className="w-full h-64 md:h-72 object-cover rounded-lg" />
         </div>
       </div>
     </section>

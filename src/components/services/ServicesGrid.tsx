@@ -57,13 +57,14 @@ export default function ServicesGrid() {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="w-full h-full object-cover opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                 />
+                <div className="absolute inset-0 bg-black/40 md:opacity-0 md:group-hover:opacity-100 transition-opacity" />
                 <div className="absolute inset-0 p-6 flex flex-col">
-                  <img src={service.icon} alt="" className="w-12 h-12 mb-4 brightness-0" style={{ filter: 'brightness(0) saturate(100%) invert(87%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(88%)' }} />
-                  <h4 className="text-3xl font-bold mb-3 text-black group-hover:text-white transition-colors">{service.title}</h4>
-                  <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity">{service.description}</p>
-                  <div className="absolute -bottom-6 -left-6 opacity-100 group-hover:opacity-0 transition-opacity">
+                  <img src={service.icon} alt="" className="w-12 h-12 mb-4 brightness-0 md:brightness-0" style={{ filter: 'brightness(0) saturate(100%) invert(87%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(88%)' }} />
+                  <h4 className="text-3xl font-bold mb-3 text-white md:text-black md:group-hover:text-white transition-colors">{service.title}</h4>
+                  <p className="text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">{service.description}</p>
+                  <div className="absolute -bottom-6 -left-6 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity">
                     <img src={service.icon} alt="" className="w-55 h-55 brightness-0 invert" />
                   </div>
                   <div className="absolute bottom-6 right-6">

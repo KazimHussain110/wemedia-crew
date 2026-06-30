@@ -11,10 +11,8 @@ export default function ServicesPage() {
       <div className="py-16" />
       <VisionSection />
       <ServicesGrid />
-      <div className="bg-[#f5f5f5] flex justify-end">
-        <div className="w-4/6">
-          <Packages />
-        </div>
+      <div className="bg-[#f5f5f5]">
+        <Packages />
       </div>
       <Reviews />
     </div>

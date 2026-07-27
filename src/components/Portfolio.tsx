@@ -112,9 +112,9 @@ export default function Portfolio() {
                 >
                   {/* Media wrapper — relative only on md+ for overlay positioning */}
                   <div className="relative">
-                    {project.medium === 'video' ? (
+                    {project.medium === 'video' && !project.videoEmbed?.endsWith('.m3u8') ? (
                       <video
-                        src={(project as any).videoEmbed}
+                        src={project.videoEmbed}
                         autoPlay={isActive}
                         muted
                         loop

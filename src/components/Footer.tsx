@@ -67,8 +67,11 @@ export default function Footer() {
           <h2 className="text-5xl md:text-7xl font-bold mb-8">Let's collaborate</h2>
           <div className="border-t border-gray-700 pt-8">
             <div className="space-y-2 mb-8">
-              <p className="text-gray-400">framek.contact@example.com</p>
-              <a href="tel:+4065550120" className="text-3xl md:text-4xl font-bold block hover:text-[#ffd731]">+ (406) 555-0120</a>
+              <a href="mailto:marketing@wemediacrew.com" className="text-gray-400 hover:text-white">marketing@wemediacrew.com</a>
+              <a href="tel:+14376639112" className="text-3xl md:text-4xl font-bold block hover:text-[#ffd731]">+1 437 663 9112</a>
+              <a href="https://wa.me/971553212002" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white block">
+                Dubai WhatsApp: +971 55 321 2002
+              </a>
             </div>
             <div className="flex justify-start md:justify-center gap-6 text-xs text-gray-500 uppercase">
               <a href="#" className="hover:text-white">FACEBOOK</a>

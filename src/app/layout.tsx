@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import PageLoader from "../components/PageLoader";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -28,10 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" href="/logo.png" as="image" fetchPriority="high" />
+      </head>
       <body
         className={`${syne.variable} ${dmSans.variable} antialiased`}
         suppressHydrationWarning
       >
+        <Suspense fallback={<div className="fixed inset-0 z-[100] bg-[#2a2a2a]" />}>
+          <PageLoader />
+        </Suspense>
         <Header />
         {children}
         <Footer />

@@ -12,7 +12,7 @@ export default function Header() {
       <header className={`absolute top-0 left-0 right-0 z-[60] ${useDarkHeader ? '[&_nav>a]:!text-black [&_nav>div]:!bg-black [&_button_span]:!bg-black' : ''}`}>
         <div className="w-full px-8 py-6 flex items-center justify-between">
           <Link href="/" className="flex-shrink-0">
-            <img src="/logo.png" alt="logo" className="h-14" />
+            <img src={useDarkHeader ? '/black-logo.png' : '/logo.png'} alt="WeMediaCrew" className="h-14" />
           </Link>
 
           <div className="flex items-center gap-6">

@@ -31,26 +31,19 @@ export default async function VideographyDetailPage({ params }: { params: Promis
     <main className="bg-white min-h-screen">
 
       {/* Hero */}
-      <section className="bg-black text-white min-h-screen flex flex-col justify-end">
-        <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 pb-16">
-          <Link href="/work" className="inline-flex items-center gap-2 text-gray-400 text-sm mb-8 hover:text-white transition-colors">
+      <section className="bg-white text-black">
+        <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 pt-32 md:pt-36 pb-12">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 rounded-full bg-[#ffd731] px-5 py-3 text-xs font-bold uppercase tracking-wider text-black mb-8 transition-transform duration-300 hover:-translate-y-0.5"
+          >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             Back to Work
           </Link>
 
-          <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="bg-[#ffd731] text-black text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-              {project.projectType}
-            </span>
-            <span className="text-gray-400 text-sm">{project.industry}</span>
-            <span className="text-gray-600 text-sm">·</span>
-            <span className="text-gray-400 text-sm">{project.year}</span>
-          </div>
-
-          <h1 className="text-4xl md:text-6xl font-black leading-tight mb-4">{project.title}</h1>
-          <p className="text-gray-400 text-lg">Client: <span className="text-white font-semibold">{project.client}</span></p>
+          <h1 className="text-4xl md:text-6xl font-black leading-tight">{project.title}</h1>
         </div>
       </section>
 
@@ -75,12 +68,22 @@ export default async function VideographyDetailPage({ params }: { params: Promis
       {project.videoEmbed && (
         <div className="max-w-[1100px] mx-auto px-6 mt-10">
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
-            <video
-              src={project.videoEmbed}
-              controls
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+            {project.videoEmbed.includes('cloudflarestream.com') && project.videoEmbed.endsWith('/manifest/video.m3u8') ? (
+              <iframe
+                src={project.videoEmbed.replace('/manifest/video.m3u8', '/iframe')}
+                title={`${project.title} video`}
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full border-0"
+              />
+            ) : (
+              <video
+                src={project.videoEmbed}
+                controls
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            )}
           </div>
         </div>
       )}

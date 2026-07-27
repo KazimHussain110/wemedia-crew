@@ -55,9 +55,9 @@ export default function Contact() {
                   </svg>
                 }
                 title="Phone number"
-                description="+(084) 123 - 456 88"
+                description="+1 437 663 9112"
               />
-              <ArrowButton href="#" text="call us" />
+              <ArrowButton href="tel:+14376639112" text="call us" />
             </div>
 
             {/* Email */}
@@ -69,9 +69,9 @@ export default function Contact() {
                   </svg>
                 }
                 title="Support email"
-                description="support@example.com"
+                description="marketing@wemediacrew.com"
               />
-              <ArrowButton href="#" text="email us" />
+              <ArrowButton href="mailto:marketing@wemediacrew.com" text="email us" />
             </div>
           </div>
         </div>

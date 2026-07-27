@@ -20,6 +20,15 @@ export type Project = {
   photos?: string[];
 };
 
+const realEstateVideos = [
+  'https://customer-rrkunujuw15dg54t.cloudflarestream.com/61c8451ba63b74f5c36f733ac41845f8/manifest/video.m3u8',
+  'https://customer-rrkunujuw15dg54t.cloudflarestream.com/194018942588a6196322914599e09bb2/manifest/video.m3u8',
+  'https://customer-rrkunujuw15dg54t.cloudflarestream.com/8dd469c52b066d734ee46d76ab75e891/manifest/video.m3u8',
+  'https://customer-rrkunujuw15dg54t.cloudflarestream.com/aafe7b56004d5be96da9fb5ea8969032/manifest/video.m3u8',
+  'https://customer-rrkunujuw15dg54t.cloudflarestream.com/7a717904b0ab3af2939b5ecb1dcdaee9/manifest/video.m3u8',
+  'https://customer-rrkunujuw15dg54t.cloudflarestream.com/d13058561f6da87abb22402ffba2a534/manifest/video.m3u8',
+];
+
 export const projects: Project[] = [
   // ── VIDEO PROJECTS ──────────────────────────────────────────────
   {
@@ -106,6 +115,26 @@ export const projects: Project[] = [
     quote: 'The team captured exactly what we stand for. Not just what we do.',
     quoteAuthor: 'Regional Marketing Lead, WorldPay from FIS',
   },
+  ...realEstateVideos.map((videoEmbed, index): Project => {
+    const projectNumber = String(index + 1).padStart(2, '0');
+
+    return {
+      slug: `real-estate-film-${projectNumber}`,
+      title: `Real Estate Film ${projectNumber}`,
+      client: 'Real Estate',
+      industry: 'Real Estate',
+      projectType: 'Real Estate Videography',
+      category: 'Real Estate',
+      year: '2026',
+      medium: 'video',
+      description: 'Cinematic real estate videography showcasing the property, its details, and the lifestyle surrounding it.',
+      thumbnail: videoEmbed.replace('/manifest/video.m3u8', '/thumbnails/thumbnail.jpg?time=1s'),
+      videoEmbed,
+      challenge: 'Present the property with a premium visual identity that captures both its architectural details and atmosphere.',
+      approach: 'We combined carefully composed interior and exterior footage with smooth cinematic movement to create an immersive property tour.',
+      result: 'A polished real estate film designed for listings, presentations, websites, and social media campaigns.',
+    };
+  }),
 
   // ── PHOTOGRAPHY PROJECTS ────────────────────────────────────────
   {

@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PageLoader from "../components/PageLoader";
+import ToasterProvider from "../components/Toaster";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -40,6 +41,7 @@ export default function RootLayout({
         <Suspense fallback={<div className="fixed inset-0 z-[100] bg-[#2a2a2a]" />}>
           <PageLoader />
         </Suspense>
+        <ToasterProvider />
         <Header />
         {children}
         <Footer />

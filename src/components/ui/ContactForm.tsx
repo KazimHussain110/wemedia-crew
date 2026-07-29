@@ -1,28 +1,56 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 const inputClass = "w-full py-4 bg-transparent border-b border-gray-300 focus:outline-none focus:border-black placeholder:text-gray-500 transition-colors text-sm";
 const selectClass = "w-full py-4 bg-transparent border-b border-gray-300 focus:outline-none focus:border-black text-sm text-gray-700 appearance-none cursor-pointer";
 
+const initialFormData = {
+  fullName: '',
+  companyName: '',
+  email: '',
+  phone: '',
+  projectType: '',
+  projectLocation: '',
+  description: '',
+  hearAboutUs: '',
+};
+
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    companyName: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    projectLocation: '',
-    description: '',
-    hearAboutUs: '',
-  });
+  const [formData, setFormData] = useState(initialFormData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setFormData((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        toast.error(result.error || 'Something went wrong. Please try again.');
+        return;
+      }
+
+      toast.success('Message sent successfully! We will get back to you soon.');
+      setFormData(initialFormData);
+    } catch {
+      toast.error('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -89,16 +117,16 @@ export default function ContactForm() {
         </svg>
       </div>
 
-      {/* Hidden UTM fields for ad attribution */}
       <input type="hidden" name="utm_source" />
       <input type="hidden" name="utm_medium" />
       <input type="hidden" name="utm_campaign" />
 
       <button
         type="submit"
-        className="w-full bg-black text-white py-4 rounded-full font-semibold text-sm uppercase tracking-widest hover:bg-[#ffd731] hover:text-black transition-all duration-300 mt-4"
+        disabled={isSubmitting}
+        className="w-full bg-black text-white py-4 rounded-full font-semibold text-sm uppercase tracking-widest hover:bg-[#ffd731] hover:text-black transition-all duration-300 mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Get My Free Quote →
+        {isSubmitting ? 'Sending...' : 'Get My Free Quote →'}
       </button>
     </form>
   );

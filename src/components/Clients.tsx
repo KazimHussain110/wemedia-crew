@@ -1,15 +1,15 @@
 export default function Clients() {
   const clients = [
-    { name: 'Prime Video', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_1.svg' },
-    { name: 'Film', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_2.svg' },
-    { name: 'Rumble', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_3.svg' },
-    { name: 'DPG Media', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_4.svg' },
-    { name: 'Cameo', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_5.svg' },
-    { name: 'Max', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_6.svg' },
-    { name: 'Dotmedia', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_7.svg' },
-    { name: 'Blendle', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_8.svg' },
-    { name: 'Studio 45', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_9.svg' },
-    { name: 'TiVo', logo: 'https://demo2.wpopal.com/framek/wp-content/uploads/2025/05/client_10.svg' }
+    { name: 'Client 01', logo: '/company-logo/001.png' },
+    { name: 'Client 02', logo: '/company-logo/002.png' },
+    { name: 'Client 03', logo: '/company-logo/003.png' },
+    { name: 'Client 04', logo: '/company-logo/004.png' },
+    { name: 'Client 05', logo: '/company-logo/005.webp' },
+    { name: 'Client 06', logo: '/company-logo/006.png' },
+    { name: 'Client 07', logo: '/company-logo/007.webp' },
+    { name: 'Client 08', logo: '/company-logo/008.png' },
+    { name: 'Client 09', logo: '/company-logo/009.png' },
+    { name: 'Client 10', logo: '/company-logo/0010.png' },
   ];
 
   return (
@@ -22,14 +22,12 @@ export default function Clients() {
           {clients.map((client, index) => (
             <div
               key={index}
-              className={`flex items-center justify-center h-[200px] border border-gray-200 ${
-                index === 1 ? 'bg-[#fef9e6]' : 'bg-white'
-              }`}
+              className="flex items-center justify-center h-[200px] border border-gray-200 bg-white"
             >
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-w-[140px] max-h-[50px] object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="max-w-[200px] max-h-[80px] object-contain grayscale hover:grayscale-0 transition-all duration-300"
               />
             </div>
           ))}

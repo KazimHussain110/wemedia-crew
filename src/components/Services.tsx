@@ -69,8 +69,8 @@ export default function Services() {
           >
             <div className="service-inner relative overflow-visible rounded-lg h-[320px] md:h-[320px] bg-white">
               {/* Initial Card - Hidden on mobile, visible on desktop */}
-              <div className="hidden md:flex absolute inset-0 flex-col justify-between p-6 transition-opacity duration-500 group-hover:opacity-0">
-                <span className="text-2xl font-bold text-black">{service.id}</span>
+              <div className="hidden md:flex absolute inset-0 flex-col justify-start p-6 transition-opacity duration-500 group-hover:opacity-0">
+                <span className="text-2xl font-bold text-black mb-4">{service.id}</span>
                 <h4 className="text-xl font-semibold text-black">{service.title}</h4>
               </div>
               

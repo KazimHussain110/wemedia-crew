@@ -20,6 +20,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wemediacrew.com"),
   title: "WeMediaCrew | Corporate Video Production & Event Videography | UAE & Canada",
   description: "Professional corporate video production and event videography across the UAE and Canada. Cinematic quality, commercial reliability. Get a free consultation.",
 };

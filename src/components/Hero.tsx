@@ -3,7 +3,7 @@ export default function Hero() {
     <section className="relative min-h-screen w-full overflow-hidden">
       <div className="absolute inset-0 z-0">
         <video
-          src="https://res.cloudinary.com/ddaovfpbu/video/upload/v1782747195/egypt-air-logo-removed_jjglvw.mp4"
+          src="https://customer-rrkunujuw15dg54t.cloudflarestream.com/03c481277222cf7f98c508e0e7aa85e6/manifest/video.m3u8"
           autoPlay
           muted
           loop

@@ -11,7 +11,7 @@ export default function Services() {
       id: '01',
       title: 'Corporate Video Production',
       description: 'Brand films, company profiles, and investor-ready content.',
-      videoUrl: 'https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233359/Final_version_rethink_fwxtwk.mp4',
+      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/081fa19e84721c10194cf46afa88e7c8/manifest/video.m3u8',
       imageUrl: '/photos/Etsalat Atlantes/DSC05620.jpg',
       link: '/services'
     },
@@ -19,7 +19,7 @@ export default function Services() {
       id: '02',
       title: 'Event Videography',
       description: 'Multi-camera coverage of galas, conferences, and product launches.',
-      videoUrl: 'https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233365/Final_-_14th_may_seamless_owv17v.mp4',
+      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/c4cab9e48ff43aa5191fdf8e969d9dd9/manifest/video.m3u8',
       imageUrl: '/photos/ADNEC/HUQ_9706.webp',
       link: '/services'
     },
@@ -35,7 +35,7 @@ export default function Services() {
       id: '04',
       title: 'Post-Production & Editing',
       description: 'Color grading, motion graphics, and multi-format delivery.',
-      videoUrl: 'https://res.cloudinary.com/ddaovfpbu/video/upload/v1782232545/WorldPlay_from_FIS_m3cz8q.mp4',
+      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/466edb4c23042878f505a9d7207f5356/manifest/video.m3u8',
       imageUrl: '/photos/Worldpay/TAKP-194.webp',
       link: '/services'
     }

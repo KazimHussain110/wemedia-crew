@@ -115,6 +115,7 @@ export default function Portfolio() {
                     {project.medium === 'video' && !project.videoEmbed?.endsWith('.m3u8') ? (
                       <video
                         src={project.videoEmbed}
+                        poster={project.thumbnail}
                         autoPlay={isActive}
                         muted
                         loop

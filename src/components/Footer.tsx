@@ -30,9 +30,9 @@ export default function Footer() {
     <footer className="bg-[#2a2a2a] text-white">
       <div className="max-w-[1400px] mx-auto px-8 lg:px-20 pt-16 pb-8">
         {/* Top Section - Logo (left), Main Links (center), Our Services (right) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-12 mb-16">
-          {/* Logo + Description */}
-          <div className="max-w-sm">
+        <div className="grid grid-cols-2 md:grid-cols-3 items-start gap-12 mb-16">
+          {/* Logo + Description - full width on mobile */}
+          <div className="col-span-2 md:col-span-1 max-w-sm">
             <Link href="/" className="inline-flex">
               <img src="/logo.png" alt="logo" className="h-24" />
             </Link>

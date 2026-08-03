@@ -1,21 +1,63 @@
 'use client';
 import Link from 'next/link';
+import { Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
+  const socials = [
+    {
+      name: 'Facebook',
+      href: '#',
+      path: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z',
+    },
+    {
+      name: 'Instagram',
+      href: '#',
+      path: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z',
+    },
+    {
+      name: 'YouTube',
+      href: '#',
+      path: 'M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z',
+    },
+    {
+      name: 'X',
+      href: '#',
+      path: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z',
+    },
+  ];
+
   return (
     <footer className="bg-[#2a2a2a] text-white">
-      <div className="max-w-[1400px] mx-auto px-4 pt-16 pb-8">
-        {/* Top Section */}
-        <div className="grid grid-cols-2 md:flex md:flex-row gap-8 mb-20">
-          {/* Logo - Full width on mobile */}
-          <div className="col-span-2 md:w-1/5 mb-8 md:mb-0">
-            <Link href="/" className="flex-shrink-0 justify-start md:justify-start flex">
-              <img src="/logo.png" alt="logo" className="h-18" />
+      <div className="max-w-[1400px] mx-auto px-8 lg:px-20 pt-16 pb-8">
+        {/* Top Section - Logo (left), Main Links (center), Our Services (right) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-12 mb-16">
+          {/* Logo + Description */}
+          <div className="max-w-sm">
+            <Link href="/" className="inline-flex">
+              <img src="/logo.png" alt="logo" className="h-24" />
             </Link>
+            <p className="text-gray-400 text-sm mt-4 leading-relaxed">
+              Full-service photography and videography company serving clients across Canada, the UAE, and Pakistan. Corporate films, events, branding, and creative content.
+            </p>
+            <div className="flex gap-4 mt-6">
+              {socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  aria-label={social.name}
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-[#ffd731] text-black bg-[#ffd731] hover:bg-[#2a2a2a] hover:text-[#ffd731] transition-all duration-300"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d={social.path} />
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Main Links */}
-          <div className="md:w-1/5">
+          {/* Main Links - centered */}
+          <div className="md:justify-self-center border-l border-gray-700 pl-8">
+            <h3 className="text-gray-500 font-semibold mb-6 uppercase text-sm">MAIN LINKS</h3>
             <nav className="space-y-3">
               <Link href="/" className="block text-white font-semibold hover:text-[#ffd731]">HOME</Link>
               <Link href="/about" className="block text-white font-semibold hover:text-[#ffd731]">ABOUT US</Link>
@@ -25,20 +67,8 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Product */}
-          <div className="md:w-1/5">
-            <h3 className="text-gray-500 font-semibold mb-6 uppercase text-sm">PRODUCT</h3>
-            <nav className="space-y-3">
-              <a href="#" className="block text-gray-400 hover:text-white">Commercial Videos</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Training Videos</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Animation</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Corporate Videos</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Motion Graphic</a>
-            </nav>
-          </div>
-
-          {/* Our Services */}
-          <div className="md:w-1/5">
+          {/* Our Services - right */}
+          <div className="md:justify-self-end border-l border-gray-700 pl-8">
             <h3 className="text-gray-500 font-semibold mb-6 uppercase text-sm">OUR SERVICES</h3>
             <nav className="space-y-3">
               <a href="#" className="block text-gray-400 hover:text-white">Film Production</a>
@@ -48,36 +78,48 @@ export default function Footer() {
               <a href="#" className="block text-gray-400 hover:text-white">Visual Effects</a>
             </nav>
           </div>
-
-          {/* Pages */}
-          <div className="md:w-1/5">
-            <h3 className="text-gray-500 font-semibold mb-6 uppercase text-sm">PAGES</h3>
-            <nav className="space-y-3">
-              <a href="#" className="block text-gray-400 hover:text-white">Team</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Testimonials</a>
-              <a href="#" className="block text-gray-400 hover:text-white">FAQs</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Blog</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Careers</a>
-            </nav>
-          </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-left md:text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-bold mb-8">Let's collaborate</h2>
-          <div className="border-t border-gray-700 pt-8">
-            <div className="space-y-2 mb-8">
-              <a href="mailto:marketing@wemediacrew.com" className="text-gray-400 hover:text-white">marketing@wemediacrew.com</a>
-              <a href="tel:+14376639112" className="text-3xl md:text-4xl font-bold block hover:text-[#ffd731]">+1 437 663 9112</a>
-              <a href="https://wa.me/971553212002" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white block">
-                Dubai WhatsApp: +971 55 321 2002
+        {/* Contact Section - rectangle box, single row */}
+        <div className="pt-8 mb-12">
+          <div className="border border-white/15 bg-[#2a2a2a] px-6 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <a
+                href="mailto:marketing@wemediacrew.com"
+                className="flex flex-col gap-2 text-center text-white font-bold text-lg md:text-xl hover:text-[#ffd731] transition-colors"
+              >
+                <span className="text-gray-500 font-semibold uppercase text-xs tracking-wider">Email</span>
+                <span className="flex items-center justify-center gap-3">
+                  <Mail className="w-6 h-6 flex-shrink-0" />
+                  <span>marketing@wemediacrew.com</span>
+                </span>
               </a>
-            </div>
-            <div className="flex justify-start md:justify-center gap-6 text-xs text-gray-500 uppercase">
-              <a href="#" className="hover:text-white">FACEBOOK</a>
-              <a href="#" className="hover:text-white">INSTAGRAM</a>
-              <a href="#" className="hover:text-white">YOUTUBE</a>
-              <a href="#" className="hover:text-white">TWITTER</a>
+
+              <a
+                href="tel:+14376639112"
+                className="flex flex-col gap-2 text-center text-white font-bold text-lg md:text-xl hover:text-[#ffd731] transition-colors"
+              >
+                <span className="text-gray-500 font-semibold uppercase text-xs tracking-wider">Phone</span>
+                <span className="flex items-center justify-center gap-3">
+                  <Phone className="w-6 h-6 flex-shrink-0" />
+                  <span>+1 437 663 9112</span>
+                </span>
+              </a>
+
+              <a
+                href="https://wa.me/971553212002"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col gap-2 text-center text-white font-bold text-lg md:text-xl hover:text-[#ffd731] transition-colors"
+              >
+                <span className="text-gray-500 font-semibold uppercase text-xs tracking-wider">WhatsApp</span>
+                <span className="flex items-center justify-center gap-3">
+                  <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  <span>+971 55 321 2002</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>

@@ -17,7 +17,8 @@ export default function Introduction() {
           <div>
             <div className="pr-8 max-w-3xl">
               <p className="text-2xl md:text-3xl font-bold mb-8">
-                What started as a small production outfit has grown into a full-service video and photography company. We work with multinational corporations, government entities, hospitality brands and event organizers across the UAE and Canada.
+                What began as a passion for visual storytelling has grown into a full-service photography and videography company serving clients across Canada, the UAE, and Pakistan.
+                We work with corporations, real estate professionals, hospitality brands, event organizers, and private clients to create polished, high-quality content that strengthens brands, captures meaningful moments, and leaves a lasting impression.
               </p>
               <ArrowButton href="/team" text="meet our team" />
 
@@ -29,7 +30,7 @@ export default function Introduction() {
                   <div>
                     <h5 className="text-lg font-bold mb-3 ml-4">A Team Built for This</h5>
                     <p className="text-gray-600 text-sm">
-                      Cinematographers, editors, colorists, sound designers, drone operators and project managers. All sharing one obsession: making every frame count.
+                      Our team includes photographers, cinematographers, editors, drone operators, and creative professionals—all working together to deliver a seamless experience from planning to final delivery.
                     </p>
                   </div>
                 </div>
@@ -39,9 +40,9 @@ export default function Introduction() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <div>
-                    <h5 className="text-lg font-bold mb-3 ml-4">Two Continents, One Standard</h5>
+                    <h5 className="text-lg font-bold mb-3 ml-4">Global Experience, Consistent Quality</h5>
                     <p className="text-gray-600 text-sm">
-                      From trade shows in Abu Dhabi to C-suite interviews in Toronto. Every project sharpens our process. Every client raises our standard.
+                       From corporate events and campaigns in Dubai to conferences, brand shoots, and client events in Toronto, we deliver every project with creativity, professionalism, and attention to detail.
                     </p>
                   </div>
                 </div>
@@ -54,9 +55,9 @@ export default function Introduction() {
       {/* Images — full width outside the 80% container */}
       <div className="w-[90%] mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-0 relative z-20">
-          <img src="/photos/Restaurant/getFlashy-1.webp" alt="Restaurant Photography" className="w-full h-64 md:h-72 object-cover rounded-lg" />
-          <img src="/photos/Dubai Air Show Exibition/TAK-111_compressed.webp" alt="Dubai Air Show" className="w-full h-64 md:h-72 object-cover rounded-lg" />
-          <img src="/photos/Etsalat Atlantes/DSC05451.jpg" alt="Etisalat Atlantes" className="w-full h-64 md:h-72 object-cover rounded-lg" />
+          <img src="/photos/Worldpay/TAKP-194.webp" alt="WorldPay from FIS Corporate Event" className="w-full h-64 md:h-72 object-cover rounded-lg" />
+          <img src="/photos/ADNEC/HUQ_9706.webp" alt="ADNEC Conference Coverage" className="w-full h-64 md:h-72 object-cover rounded-lg" />
+          <img src="/photos/Etsalat Atlantes/DSC05513.jpg" alt="Etisalat Atlantes Brand Event" className="w-full h-64 md:h-72 object-cover rounded-lg" />
         </div>
       </div>
     </section>

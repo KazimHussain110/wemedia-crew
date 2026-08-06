@@ -9,7 +9,15 @@ function waitForWindowLoad() {
   if (document.readyState === 'complete') return Promise.resolve();
 
   return new Promise<void>((resolve) => {
-    window.addEventListener('load', () => resolve(), { once: true });
+    let done = false;
+    const finish = () => {
+      if (!done) {
+        done = true;
+        resolve();
+      }
+    };
+    window.addEventListener('load', finish, { once: true });
+    window.setTimeout(finish, MAX_ASSET_WAIT_MS);
   });
 }
 

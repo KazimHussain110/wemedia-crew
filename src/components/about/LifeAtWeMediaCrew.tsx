@@ -2,7 +2,7 @@
 
 import ArrowButton from '../ui/ArrowButton';
 
-export default function LifeAtFramek() {
+export default function LifeAtWeMediaCrew() {
   return (
     <div className="bg-[#f5f5f5] py-20">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
@@ -10,7 +10,7 @@ export default function LifeAtFramek() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
           <div>
             <h3 className="text-4xl lg:text-5xl font-bold text-black">
-              Life at Framek
+              Life at WeMediaCrew
             </h3>
           </div>
           <div>

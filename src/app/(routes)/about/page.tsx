@@ -2,10 +2,11 @@ import AboutHero from '../../../components/about/AboutHero';
 import AboutContent from '../../../components/about/AboutContent';
 import AboutStats from '../../../components/about/AboutStats';
 import AboutApproach from '../../../components/about/AboutApproach';
-import LifeAtFramek from '../../../components/about/LifeAtFramek';
+import LifeAtFramek from '../../../components/about/LifeAtWeMediaCrew';
 import ProjectInquiry from '../../../components/about/ProjectInquiry';
 
 import type { Metadata } from 'next';
+import LifeAtWeMediaCrew from '../../../components/about/LifeAtWeMediaCrew';
 
 export const metadata: Metadata = {
   title: 'About WeMediaCrew | Professional Videography Company | UAE & Canada',
@@ -19,7 +20,7 @@ export default function AboutPage() {
       <AboutContent />
       <AboutStats />
       <AboutApproach />
-      <LifeAtFramek />
+      <LifeAtWeMediaCrew />
       <ProjectInquiry />
     </div>
   );

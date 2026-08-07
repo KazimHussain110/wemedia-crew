@@ -2,10 +2,11 @@
 
 import { useState, useRef } from 'react';
 import ArrowButton from './ui/ArrowButton';
+import VideoPlayer from './ui/VideoPlayer';
 import { projects } from '../lib/workData';
 
-const photoProjects = projects.filter((p) => p.medium === 'photography');
-const videoProjects = projects.filter((p) => p.medium === 'video');
+const photoProjects = projects.filter((p) => p.medium === 'photography' && p.showInPortfolio);
+const videoProjects = projects.filter((p) => p.medium === 'video' && p.showInPortfolio);
 
 const humanizedDescriptions: Record<string, string> = {
   'adnec-event-coverage': "Abu Dhabi's biggest conference hall, one crew, zero missed moments. We moved through keynotes and corridors and came back with frames that actually tell the story.",
@@ -112,16 +113,31 @@ export default function Portfolio() {
                 >
                   {/* Media wrapper — relative only on md+ for overlay positioning */}
                   <div className="relative">
-                    {project.medium === 'video' && !project.videoEmbed?.endsWith('.m3u8') ? (
-                      <video
-                        src={project.videoEmbed}
-                        poster={project.thumbnail}
-                        autoPlay={isActive}
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-[240px] md:h-[520px] object-cover"
-                      />
+                    {project.medium === 'video' && project.videoEmbed ? (
+                      project.videoEmbed.includes('youtube.com') || project.videoEmbed.includes('youtu.be') ? (
+                        isActive ? (
+                          <iframe
+                            src={`${project.videoEmbed}?autoplay=1&mute=1&loop=1&playlist=${project.videoEmbed.split('/').pop()}&rel=0`}
+                            title={`${project.title} video`}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="w-full h-[240px] md:h-[520px] border-0 object-cover"
+                          />
+                        ) : (
+                          <img
+                            src={project.thumbnail}
+                            alt={project.title}
+                            className="w-full h-[240px] md:h-[520px] object-cover"
+                          />
+                        )
+                      ) : (
+                        <VideoPlayer
+                          src={project.videoEmbed}
+                          poster={project.thumbnail}
+                          active={isActive}
+                          className="w-full h-[240px] md:h-[520px] object-cover"
+                        />
+                      )
                     ) : (
                       <img
                         src={project.thumbnail}

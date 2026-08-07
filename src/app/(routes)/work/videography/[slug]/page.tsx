@@ -76,6 +76,14 @@ export default async function VideographyDetailPage({ params }: { params: Promis
                 allowFullScreen
                 className="absolute inset-0 w-full h-full border-0"
               />
+            ) : project.videoEmbed.includes('youtube.com') || project.videoEmbed.includes('youtu.be') ? (
+              <iframe
+                src={project.videoEmbed}
+                title={`${project.title} video`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full border-0"
+              />
             ) : (
               <video
                 src={project.videoEmbed}

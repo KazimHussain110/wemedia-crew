@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation';
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const useDarkHeader = pathname.startsWith('/work/videography/') && !menuOpen;
+  const useDarkHeader =
+    (pathname.startsWith('/work/videography/') || pathname.startsWith('/work/photography/')) && !menuOpen;
 
   return (
     <>

@@ -33,27 +33,19 @@ export default async function PhotographyDetailPage({ params }: { params: Promis
     <main className="bg-white min-h-screen">
 
       {/* Hero */}
-      <section className="bg-black text-white min-h-screen flex flex-col justify-end">
-        <div className="max-w-[1000px] mx-auto px-6 pb-12">
-          <Link href="/work" className="inline-flex items-center gap-2 text-gray-400 text-sm mb-8 hover:text-white transition-colors">
+      <section className="bg-white text-black">
+        <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 pt-32 md:pt-36 pb-12">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 rounded-full bg-[#ffd731] px-5 py-3 text-xs font-bold uppercase tracking-wider text-black mb-8 transition-transform duration-300 hover:-translate-y-0.5"
+          >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             Back to Work
           </Link>
 
-          <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="bg-[#ffd731] text-black text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-              {project.projectType}
-            </span>
-            <span className="text-gray-400 text-sm">{project.industry}</span>
-            <span className="text-gray-600 text-sm">·</span>
-            <span className="text-gray-400 text-sm">{project.year}</span>
-          </div>
-
-          <h1 className="text-4xl md:text-6xl font-black leading-tight mb-4">{project.title}</h1>
-          <p className="text-gray-400 text-lg">Client: <span className="text-white font-semibold">{project.client}</span></p>
-          <p className="text-gray-400 text-sm mt-3 max-w-xl">{project.description}</p>
+          <h1 className="text-4xl md:text-6xl font-black leading-tight">{project.title}</h1>
         </div>
       </section>
 
@@ -84,7 +76,7 @@ export default async function PhotographyDetailPage({ params }: { params: Promis
         <div className="max-w-[1000px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-2xl font-black text-white mb-1">Book a Photography Session</h3>
-            <p className="text-white/50 text-sm">Tell us about your event or brand — we'll respond within 24 hours.</p>
+            <p className="text-white/50 text-sm">Tell us about your event or brand — we&apos;ll respond within 24 hours.</p>
           </div>
           <Link
             href="/contact"

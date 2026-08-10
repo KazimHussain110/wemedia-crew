@@ -42,9 +42,9 @@ export default function AboutStats() {
       step2++;
       step3++;
 
-      setCount1(Math.min(Math.floor((3000 / steps) * step1), 3000));
-      setCount2(Math.min(Math.floor((25 / steps) * step2), 25));
-      setCount3(Math.min(Math.floor((80 / steps) * step3), 80));
+      setCount1(Math.min(Math.floor((1000 / steps) * step1), 1000));
+      setCount2(Math.min(Math.floor((10 / steps) * step2), 10));
+      setCount3(Math.min(Math.floor((50 / steps) * step3), 50));
 
       if (step1 >= steps) clearInterval(timer);
     }, interval);

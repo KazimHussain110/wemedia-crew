@@ -4,24 +4,28 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { projects } from '../../lib/workData';
 
-const videoFilters = ['All', 'Corporate Films', 'Event Coverage', 'Real Estate', 'Aerial', 'Social Content'];
-const photoFilters = ['All', 'Brand Shoots', 'Event Coverage', 'Corporate', 'Exhibition'];
+const videoFilters = ['Corporate Events', 'Real Estate', 'Exhibitions', 'Podcast & Panel Discussion'];
+const photoFilters = ['Corporate Events', 'Exhibitions', 'Action Sports', 'Commercial'];
 
 export default function Projects() {
   const [medium, setMedium] = useState<'video' | 'photography'>('video');
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   const filters = medium === 'video' ? videoFilters : photoFilters;
 
   const filtered = projects.filter((p) => {
     if (p.medium !== medium) return false;
-    if (activeFilter === 'All') return true;
+    if (!activeFilter) return true;
     return p.category === activeFilter;
   });
 
   function handleMediumSwitch(m: 'video' | 'photography') {
     setMedium(m);
-    setActiveFilter('All');
+    setActiveFilter(null);
+  }
+
+  function handleFilterClick(f: string) {
+    setActiveFilter((prev) => (prev === f ? null : f));
   }
 
   return (
@@ -50,7 +54,7 @@ export default function Projects() {
           {filters.map((f) => (
             <button
               key={f}
-              onClick={() => setActiveFilter(f)}
+              onClick={() => handleFilterClick(f)}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                 activeFilter === f ? 'bg-black text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}

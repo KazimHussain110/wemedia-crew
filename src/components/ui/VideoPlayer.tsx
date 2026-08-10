@@ -1,8 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from 'react';
-
-type HlsInstance = InstanceType<typeof import('hls.js')['default']>;
+import Hls from 'hls.js';
 
 type VideoPlayerProps = {
   src: string;
@@ -31,7 +30,7 @@ export default function VideoPlayer({
     const video = videoRef.current;
     if (!video) return;
 
-    let hls: HlsInstance | null = null;
+    let hls: Hls | null = null;
     let cancelled = false;
 
     if (!active) {
@@ -55,26 +54,14 @@ export default function VideoPlayer({
       if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = src;
         markReady();
+      } else if (Hls.isSupported()) {
+        hls = new Hls();
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, markReady);
       } else {
-        import('hls.js')
-          .then(({ default: Hls }) => {
-            if (cancelled || !videoRef.current) return;
-            if (Hls.isSupported()) {
-              hls = new Hls();
-              hls.loadSource(src);
-              hls.attachMedia(videoRef.current);
-              hls.on(Hls.Events.MANIFEST_PARSED, markReady);
-            } else {
-              videoRef.current.src = src;
-              markReady();
-            }
-          })
-          .catch(() => {
-            if (!cancelled && videoRef.current) {
-              videoRef.current.src = src;
-              markReady();
-            }
-          });
+        video.src = src;
+        markReady();
       }
     } else {
       video.src = src;
@@ -90,9 +77,21 @@ export default function VideoPlayer({
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !ready || !active) return;
-    video.muted = muted;
-    const playPromise = video.play();
-    if (playPromise) playPromise.catch(() => {});
+
+    const tryPlay = () => {
+      video.muted = muted;
+      const playPromise = video.play();
+      if (playPromise) playPromise.catch(() => {});
+    };
+
+    video.addEventListener('loadeddata', tryPlay);
+    video.addEventListener('canplay', tryPlay);
+    tryPlay();
+
+    return () => {
+      video.removeEventListener('loadeddata', tryPlay);
+      video.removeEventListener('canplay', tryPlay);
+    };
   }, [active, ready, muted]);
 
   return (

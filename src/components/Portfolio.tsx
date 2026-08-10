@@ -9,14 +9,14 @@ const photoProjects = projects.filter((p) => p.medium === 'photography' && p.sho
 const videoProjects = projects.filter((p) => p.medium === 'video' && p.showInPortfolio);
 
 const humanizedDescriptions: Record<string, string> = {
-  'adnec-event-coverage': "Abu Dhabi's biggest conference hall, one crew, zero missed moments. We moved through keynotes and corridors and came back with frames that actually tell the story.",
-  'canada-action-sports': "Sweat, speed, and split-second decisions. We embedded with the athletes and shot the moments that make you feel the impact even in a still frame.",
+  'adnec-event-coverage': "Abu Dhabi's biggest exhibition hall, one crew, zero missed moments. We moved through the pavilions and came back with frames that actually tell the story.",
+  'canada-action-sports': "Sweat, mud, and split-second decisions. We embedded with the Spartan Race athletes and shot the moments that make you feel the impact even in a still frame.",
   'cricket-event-photography': "Six frames. Six wickets. A tournament that crackled with intensity from the first ball. We were on the boundary, and we didn't blink.",
-  'etisalat-atlantes-event': "A product launch is only as powerful as the story told around it. We captured the executives, the reveals, and the energy that no press release can convey.",
+  'etisalat-atlantes-event': "A board meeting is only as powerful as the story told around it. We captured the executives, the sessions, and the energy that no press release can convey.",
   'dubai-air-show': "Machines that defy gravity, crowds that hold their breath. We walked the tarmac and made every frame feel as big as the sky above it.",
-  'food-exhibition-dubai': "Dubai's biggest food show and every stall had a story. We chased colour, steam, and the faces of people genuinely excited about what they'd made.",
+  'food-exhibition-dubai': "Abu Dhabi's biggest food show and every stall had a story. We chased colour, steam, and the faces of people genuinely excited about what they'd made.",
   'worldpay-corporate': "Finance doesn't have to feel cold. We found the warmth in the room — the handshakes, the candid laughs — and turned a corporate event into a genuine human story.",
-  'restaurant-photography': "Good food deserves to be seen. We lit every dish and framed every corner until the photos made you hungry before you'd even read the menu.",
+  'restaurant-photography': "Good food deserves to be seen. We lit every dish and framed every corner of Emirates Palace until the photos made you hungry before you'd even read the menu.",
   'egypt-air-brand-film': "A legacy airline, a blank canvas. We built a cinematic world around the poetry of flight — and made every second feel like somewhere you want to be.",
   'seamless-live-event': "Some rooms have a pulse. This was one of them. We put four cameras in, chased the energy, and brought the whole night back to life on screen.",
   'rethink-brand-campaign': "What if your brand film didn't feel like a brand film? That was the brief. We threw out the script, kept the soul, and built something people actually watch.",
@@ -162,7 +162,7 @@ export default function Portfolio() {
                       <h3 className="text-white text-4xl font-bold mb-2">{project.title}</h3>
                       <div className="flex items-center gap-3 text-sm">
                         <span className="text-[#ffd731] font-semibold">{project.projectType}</span>
-                        <span className="text-gray-400">{project.year}</span>
+                        <span className="text-gray-400">{project.location ?? project.year}</span>
                       </div>
                     </div>
                   </div>
@@ -172,7 +172,7 @@ export default function Portfolio() {
                     <h3 className="text-white text-2xl font-bold mb-1">{project.title}</h3>
                     <div className="flex items-center gap-3 text-sm">
                       <span className="text-[#ffd731] font-semibold">{project.projectType}</span>
-                      <span className="text-gray-400">{project.year}</span>
+                      <span className="text-gray-400">{project.location ?? project.year}</span>
                     </div>
                   </div>
                 </div>

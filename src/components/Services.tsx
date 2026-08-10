@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import ArrowButton from './ui/ArrowButton';
+import VideoPlayer from './ui/VideoPlayer';
 
 export default function Services() {
   const [hoveredService, setHoveredService] = useState<string | null>(null);
@@ -9,35 +10,33 @@ export default function Services() {
   const services = [
     {
       id: '01',
-      title: 'Corporate Video Production',
-      description: 'Brand films, company profiles, and investor-ready content.',
-      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/081fa19e84721c10194cf46afa88e7c8/manifest/video.m3u8',
+      title: 'Corporate Event',
+      description: 'Corporate events, product launches, and conferences.',
+      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/c4cab9e48ff43aa5191fdf8e969d9dd9/manifest/video.m3u8',
       imageUrl: '/photos/Etsalat Atlantes/DSC05620.jpg',
-      link: '/services'
+      link: '/services/corporate-events'
     },
     {
       id: '02',
-      title: 'Event Videography',
-      description: 'Multi-camera coverage of galas, conferences, and product launches.',
-      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/c4cab9e48ff43aa5191fdf8e969d9dd9/manifest/video.m3u8',
-      imageUrl: '/photos/ADNEC/HUQ_9706.webp',
-      link: '/services'
+      title: 'Exhibition',
+      description: 'Trade shows and exhibitions covered from the floor to the stage.',
+      imageUrl: '/photos/Dubai Air Show Exibition/TAK-357_compressed.webp',
+      link: '/services/exhibitions'
     },
     {
       id: '03',
-      title: 'Aerial & Drone Videography',
-      description: 'Cinematic aerial perspectives for real estate, hospitality, and events.',
-      videoUrl: 'https://res.cloudinary.com/ddaovfpbu/video/upload/v1782233361/Egypt_Air_tjz8ge.mp4',
-      imageUrl: '/photos/Dubai Air Show Exibition/TAK-218_compressed.webp',
-      link: '/services'
+      title: 'Real Estate',
+      description: 'Cinematic property tours and aerial perspectives for listings.',
+      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/61c8451ba63b74f5c36f733ac41845f8/manifest/video.m3u8',
+      imageUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/61c8451ba63b74f5c36f733ac41845f8/thumbnails/thumbnail.jpg?time=1s',
+      link: '/services/real-estate'
     },
     {
       id: '04',
-      title: 'Post-Production & Editing',
-      description: 'Color grading, motion graphics, and multi-format delivery.',
-      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/466edb4c23042878f505a9d7207f5356/manifest/video.m3u8',
-      imageUrl: '/photos/Worldpay/TAKP-194.webp',
-      link: '/services'
+      title: 'Sports Event',
+      description: 'coverage of tournaments, matches, and competitions.',
+      imageUrl: '/photos/Cricket Event/CCA_7294.webp',
+      link: '/services/sports'
     }
   ];
 
@@ -77,16 +76,16 @@ export default function Services() {
               {/* Expanded Content - Always visible on mobile, hover on desktop */}
               <div className="service-content absolute bottom-0 left-0 right-0 h-[340px] -translate-y-[50px] md:translate-y-full md:group-hover:-translate-y-[50px] transition-all duration-500 ease-out rounded-lg z-10 bg-white opacity-100 visible md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible">
                 <div className="service-post-thumbnail relative h-2/3 overflow-hidden rounded-t-lg">
-                  <div className="video-container absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 md:delay-300">
-                    <video
-                      src={service.videoUrl}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  {service.videoUrl && (
+                    <div className="video-container absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 md:delay-300">
+                      <VideoPlayer
+                        src={service.videoUrl}
+                        poster={service.imageUrl}
+                        active
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
                   <img
                     src={service.imageUrl}
                     alt={service.title}

@@ -72,8 +72,8 @@ export default function ContactForm() {
             <option>Corporate Video</option>
             <option>Event Coverage</option>
             <option>Aerial / Drone</option>
-            <option>Post-Production</option>
-            <option>Social Media Content</option>
+            <option>Podcast and Panel Discussion</option>
+            <option>Action Sports</option>
             <option>Live Streaming</option>
             <option>Other</option>
           </select>

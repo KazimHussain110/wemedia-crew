@@ -63,11 +63,11 @@ export default function Footer() {
           <div className="md:justify-self-end border-l border-gray-700 pl-8">
             <h3 className="text-gray-500 font-semibold mb-6 uppercase text-sm">OUR SERVICES</h3>
             <nav className="space-y-3">
-              <a href="#" className="block text-gray-400 hover:text-white">Film Production</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Creative Direction</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Motion Graphic</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Digital Content</a>
-              <a href="#" className="block text-gray-400 hover:text-white">Visual Effects</a>
+              <Link href="/services/corporate-events" className="block text-gray-400 hover:text-white">Corporate Events</Link>
+              <Link href="/services/real-estate" className="block text-gray-400 hover:text-white">Real Estate</Link>
+              <Link href="/services/exhibitions" className="block text-gray-400 hover:text-white">Exhibitions</Link>
+              <Link href="/services/sports" className="block text-gray-400 hover:text-white">Sports</Link>
+              <Link href="/services/podcast-and-panel-discussion" className="block text-gray-400 hover:text-white">Podcast and Panel Discussion</Link>
             </nav>
           </div>
         </div>

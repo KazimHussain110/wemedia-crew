@@ -24,7 +24,7 @@ export default async function VideographyDetailPage({ params }: { params: Promis
   if (!project) notFound();
 
   const related = projects
-    .filter((p) => p.medium === 'video' && p.slug !== project.slug)
+    .filter((p) => p.medium === 'video' && p.category === project.category && p.slug !== project.slug)
     .slice(0, 2);
 
   return (
@@ -115,7 +115,7 @@ export default async function VideographyDetailPage({ params }: { params: Promis
 
         {project.quote && (
           <blockquote className="mt-12 border-l-4 border-[#ffd731] pl-6">
-            <p className="text-xl font-medium text-gray-800 leading-relaxed mb-3">"{project.quote}"</p>
+            <p className="text-xl font-medium text-gray-800 leading-relaxed mb-3">&ldquo;{project.quote}&rdquo;</p>
             <cite className="text-sm text-gray-500 not-italic">— {project.quoteAuthor}</cite>
           </blockquote>
         )}
@@ -126,7 +126,7 @@ export default async function VideographyDetailPage({ params }: { params: Promis
         <div className="max-w-[1000px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-2xl font-black mb-1">Start a Project Like This</h3>
-            <p className="text-black/70 text-sm">Tell us about your brief — we'll respond within 24 hours.</p>
+            <p className="text-black/70 text-sm">Tell us about your brief — we&apos;ll respond within 24 hours.</p>
           </div>
           <Link
             href="/contact"

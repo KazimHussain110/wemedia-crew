@@ -1,5 +1,7 @@
 "use client"
 
+import VideoPlayer from '../ui/VideoPlayer';
+
 export default function AboutApproach() {
   return (
     <div className="bg-[#f5f5f5] py-20">
@@ -9,19 +11,16 @@ export default function AboutApproach() {
           {/* Heading */}
           <div className="flex items-start">
             <h3 className="text-3xl lg:text-4xl font-bold text-black leading-tight">
-              Helping your brand's voice be heard in the digital world
+              Helping your brand&apos;s voice be heard in the digital world
             </h3>
           </div>
 
           {/* Video Background Section */}
           <div className="relative rounded-lg overflow-hidden h-[300px] flex items-end p-8 lg:col-span-2">
-            <video 
-              className="absolute inset-0 w-full h-full object-cover" 
-              autoPlay 
-              muted 
-              playsInline 
-              loop
-              src="https://videos.pexels.com/video-files/1437396/1437396-uhd_2560_1440_24fps.mp4"
+            <VideoPlayer
+              src="https://customer-rrkunujuw15dg54t.cloudflarestream.com/764dda6253b646590cf171f7d00c95ba/manifest/video.m3u8"
+              className="absolute inset-0 w-full h-full object-cover"
+              active
             />
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="relative z-10 text-white">
@@ -121,7 +120,7 @@ export default function AboutApproach() {
             </div>
             <h5 className="text-xl font-semibold text-black mb-3">Excellence in every frame</h5>
             <p className="text-gray-600 text-sm leading-relaxed">
-              We don't believe in one-size-fits-all approaches. Every solution we create is carefully crafted to address your specific challenges.
+              We don&apos;t believe in one-size-fits-all approaches. Every solution we create is carefully crafted to address your specific challenges.
             </p>
           </div>
 
@@ -144,7 +143,7 @@ export default function AboutApproach() {
             </div>
             <h5 className="text-xl font-semibold text-black mb-3">Passion-driven work</h5>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Collaborative partnerships matter to us because it's not about being right but rather about discovering the right idea.
+              Collaborative partnerships matter to us because it&apos;s not about being right but rather about discovering the right idea.
             </p>
           </div>
         </div>

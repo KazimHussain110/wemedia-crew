@@ -50,9 +50,9 @@ export default function Principles() {
   ];
 
   const stats = [
-    { number: '25+', label: 'years in business' },
-    { number: '3K+', label: 'videos created' },
-    { number: '1B+', label: 'views archived for clients' },
+    { number: '10+', label: 'years in business' },
+    { number: '1K+', label: 'videos created' },
+    { number: '10M+', label: 'views archived for clients' },
     { number: '99%', label: 'satisfied customers' }
   ];
 

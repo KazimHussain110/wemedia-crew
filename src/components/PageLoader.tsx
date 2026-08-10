@@ -95,11 +95,13 @@ export default function PageLoader() {
       showLoader();
     };
 
+    // Note: the loader only starts on actual route changes (see the effect below).
+    // We intentionally do NOT listen to `popstate`: back/forward navigation that
+    // does not change the route (same-URL or hash-only history entries) would
+    // otherwise show a loader that never completes.
     document.addEventListener('click', handleNavigationStart, true);
-    window.addEventListener('popstate', showLoader);
     return () => {
       document.removeEventListener('click', handleNavigationStart, true);
-      window.removeEventListener('popstate', showLoader);
     };
   }, []);
 

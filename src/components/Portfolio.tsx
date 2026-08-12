@@ -55,7 +55,7 @@ export default function Portfolio() {
             <svg className="w-2 h-2 fill-white" viewBox="0 0 512 512">
               <circle cx="256" cy="256" r="256" />
             </svg>
-            <span className="text-sm uppercase tracking-wider">portfolio</span>
+            <span className="text-sm uppercase tracking-wider">work</span>
           </div>
           <ArrowButton href="/work" text="view all work" />
         </div>
@@ -113,37 +113,31 @@ export default function Portfolio() {
                 >
                   {/* Media wrapper — relative only on md+ for overlay positioning */}
                   <div className="relative">
-                    {project.medium === 'video' && project.videoEmbed ? (
+                    {/* Thumbnail always renders so every card matches the photography layout */}
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title}
+                      className="w-full h-[240px] md:h-[520px] object-cover"
+                    />
+
+                    {/* Video plays on top of the thumbnail only for the active slide */}
+                    {project.medium === 'video' && project.videoEmbed && isActive && (
                       project.videoEmbed.includes('youtube.com') || project.videoEmbed.includes('youtu.be') ? (
-                        isActive ? (
-                          <iframe
-                            src={`${project.videoEmbed}?autoplay=1&mute=1&loop=1&playlist=${project.videoEmbed.split('/').pop()}&rel=0`}
-                            title={`${project.title} video`}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            className="w-full h-[240px] md:h-[520px] border-0 object-cover"
-                          />
-                        ) : (
-                          <img
-                            src={project.thumbnail}
-                            alt={project.title}
-                            className="w-full h-[240px] md:h-[520px] object-cover"
-                          />
-                        )
+                        <iframe
+                          src={`${project.videoEmbed}?autoplay=1&mute=1&loop=1&playlist=${project.videoEmbed.split('/').pop()}&rel=0`}
+                          title={`${project.title} video`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          className="absolute inset-0 w-full h-full border-0"
+                        />
                       ) : (
                         <VideoPlayer
                           src={project.videoEmbed}
                           poster={project.thumbnail}
-                          active={isActive}
-                          className="w-full h-[240px] md:h-[520px] object-cover"
+                          active
+                          className="absolute inset-0 w-full h-full object-cover"
                         />
                       )
-                    ) : (
-                      <img
-                        src={project.thumbnail}
-                        alt={project.title}
-                        className="w-full h-[240px] md:h-[520px] object-cover"
-                      />
                     )}
 
                     {/* Gradient overlay — desktop only */}

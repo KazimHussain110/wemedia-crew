@@ -27,7 +27,7 @@ export default function Services() {
       id: '03',
       title: 'Real Estate',
       description: 'Cinematic property tours and aerial perspectives for listings.',
-      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/61c8451ba63b74f5c36f733ac41845f8/manifest/video.m3u8',
+      videoUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/48aac98d583214b71470438c157c8677/manifest/video.m3u8',
       imageUrl: 'https://customer-rrkunujuw15dg54t.cloudflarestream.com/61c8451ba63b74f5c36f733ac41845f8/thumbnails/thumbnail.jpg?time=1s',
       link: '/services/real-estate'
     },

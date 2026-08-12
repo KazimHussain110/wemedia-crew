@@ -1,14 +1,14 @@
 export default function Clients() {
   const clients = [
-    { name: 'Client 01', logo: '/company-logo/001.png' },
+    { name: 'Client 01', logo: '/company-logo/001-white.png' },
     { name: 'Client 02', logo: '/company-logo/002.png' },
     { name: 'Client 03', logo: '/company-logo/003.png' },
     { name: 'Client 04', logo: '/company-logo/004.png' },
-    { name: 'Client 05', logo: '/company-logo/005.webp' },
-    { name: 'Client 06', logo: '/company-logo/006.png' },
-    { name: 'Client 07', logo: '/company-logo/007.webp' },
+    { name: 'Client 05', logo: '/company-logo/Hyrox.png' },
+    { name: 'Client 06', logo: '/company-logo/006-white.png' },
+    { name: 'Client 07', logo: '/company-logo/etisalat-white.png' },
     { name: 'Client 08', logo: '/company-logo/008.png' },
-    { name: 'Client 09', logo: '/company-logo/009.png' },
+    { name: 'Client 09', logo: '/company-logo/009-white.png' },
     { name: 'Client 10', logo: '/company-logo/0010.png' },
   ];
 

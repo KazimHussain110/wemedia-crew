@@ -54,7 +54,7 @@ export default function Footer() {
               <Link href="/" className="block text-white font-semibold hover:text-[#ffd731]">HOME</Link>
               <Link href="/about" className="block text-white font-semibold hover:text-[#ffd731]">ABOUT US</Link>
               <Link href="/services" className="block text-white font-semibold hover:text-[#ffd731]">SERVICES</Link>
-              <Link href="/projects" className="block text-white font-semibold hover:text-[#ffd731]">PROJECTS</Link>
+              <Link href="/work" className="block text-white font-semibold hover:text-[#ffd731]">WORK</Link>
               <Link href="/contact" className="block text-white font-semibold hover:text-[#ffd731]">CONTACT US</Link>
             </nav>
           </div>

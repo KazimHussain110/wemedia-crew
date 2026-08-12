@@ -2,7 +2,7 @@ import ServicesHero from '../../../components/services/ServicesHero';
 import VisionSection from '../../../components/VisionSection';
 import ServicesGrid from '../../../components/services/ServicesGrid';
 import Packages from '../../../components/services/ProcessSteps';
-import Reviews from '../../../components/services/Reviews';
+import Testimonials from '../../../components/Testimonials';
 
 export default function ServicesPage() {
   return (
@@ -14,7 +14,7 @@ export default function ServicesPage() {
       <div className="bg-[#f5f5f5]">
         <Packages />
       </div>
-      <Reviews />
+      <Testimonials />
     </div>
   );
 }

@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 import ArrowButton from '../ui/ArrowButton';
 
 const steps = [
@@ -8,21 +10,18 @@ const steps = [
     number: '01',
     title: 'Single-Day Shoot',
     description: 'Ideal for interviews, corporate profiles, and small events. Includes one cinematographer, professional lighting and audio, and a polished edit.',
-    timeline: 'FROM AED 8,000',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop'
   },
   {
     number: '02',
     title: 'Multi-Day Production',
     description: 'For brand films, multi-session event coverage, and documentary-style projects. Includes full crew, multi-camera setup, and advanced post-production.',
-    timeline: 'FROM AED 25,000',
     image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop'
   },
   {
     number: '03',
     title: 'Retainer Partnerships',
     description: 'Monthly or quarterly production retainers for brands that need consistent video content. Priority scheduling, volume pricing, and a dedicated creative team.',
-    timeline: 'CUSTOM PRICING',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop'
   },
 ];
@@ -72,9 +71,14 @@ function CarouselPackages() {
           <div ref={contentRef} className="flex-1 flex flex-col">
             <h3 className="text-2xl font-bold mb-6">{steps[display].title}</h3>
             <p className="text-gray-600 flex-1">{steps[display].description}</p>
-            <div className="border-t border-gray-300 pt-4 mt-6 flex justify-between items-center">
-              <span className="text-sm font-semibold">STARTING FROM</span>
-              <span className="text-sm font-semibold">{steps[display].timeline}</span>
+            <div className="border-t border-gray-300 pt-4 mt-6">
+              <Link
+                href="/contact"
+                className="w-full inline-flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#ffd731] hover:text-black transition-all duration-300"
+              >
+                GET A QUOTE
+                <ChevronRight size={18} />
+              </Link>
             </div>
           </div>
         </div>
@@ -124,9 +128,14 @@ function MobilePackages() {
               <h3 className="text-lg font-bold">{step.title}</h3>
             </div>
             <p className="text-gray-600 text-sm mb-4">{step.description}</p>
-            <div className="border-t border-gray-200 pt-3 flex justify-between items-center">
-              <span className="text-xs font-semibold text-gray-500">STARTING FROM</span>
-              <span className="text-sm font-semibold">{step.timeline}</span>
+            <div className="border-t border-gray-200 pt-3">
+              <Link
+                href="/contact"
+                className="w-full inline-flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#ffd731] hover:text-black transition-all duration-300"
+              >
+                GET A QUOTE
+                <ChevronRight size={18} />
+              </Link>
             </div>
           </div>
         </div>
@@ -141,10 +150,10 @@ export default function Packages() {
       <div className="max-w-[1600px] mx-auto px-4">
         <div className="max-w-4xl mb-12 lg:mb-16 mx-auto text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Transparent Pricing. No Surprises.
+            Custom Quotes, Tailored to Your Project.
           </h2>
           <p className="text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
-            We offer flexible engagement models depending on your scope and budget. All packages include a dedicated project manager, pre-production planning, and revision rounds.
+            Every project is different, so we price each one on its own scope and goals. Tell us what you need and we'll send you a tailored quote.
           </p>
           <div className="flex justify-center">
             <ArrowButton href="/contact" text="REQUEST A CUSTOM QUOTE" />

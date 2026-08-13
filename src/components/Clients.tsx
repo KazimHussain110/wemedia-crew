@@ -27,7 +27,7 @@ export default function Clients() {
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-w-[200px] max-h-[80px] object-contain transition-all duration-300"
+                className="max-w-[80px] max-h-[80px] object-contain md:max-w-[200px] transition-all duration-300"
               />
             </div>
           ))}

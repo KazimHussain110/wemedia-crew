@@ -55,8 +55,7 @@ export default async function PhotographyDetailPage({ params }: { params: Promis
           {[
             { label: 'Client', value: project.client },
             { label: 'Industry', value: project.industry },
-            { label: 'Photos', value: `${photos.length} shots` },
-            { label: 'Year', value: project.year },
+            { label: 'Location', value: project.location },
           ].map(({ label, value }) => (
             <div key={label}>
               <p className="text-[10px] uppercase tracking-widest text-black/50 mb-0.5">{label}</p>

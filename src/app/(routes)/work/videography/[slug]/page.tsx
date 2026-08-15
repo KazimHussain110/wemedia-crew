@@ -55,6 +55,7 @@ export default async function VideographyDetailPage({ params }: { params: Promis
             { label: 'Client', value: project.client },
             { label: 'Industry', value: project.industry },
             { label: 'Project Type', value: project.projectType },
+            { label: 'Location', value: project.location },
           ].map(({ label, value }) => (
             <div key={label} className="border-t-2 border-[#ffd731] pt-4">
               <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">{label}</p>
